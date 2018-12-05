@@ -133,7 +133,7 @@ The final file would look something like this:
     "DEVICE_ADDRESS_3"  
   ],  
   "payout_address": "YOUR_WALLET_ADDRESS",  
-  bLight = false  
+  "bLight": false  
 }`  
 
 
