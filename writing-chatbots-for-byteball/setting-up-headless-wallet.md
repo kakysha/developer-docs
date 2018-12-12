@@ -36,19 +36,16 @@ I will be installing all prerequisites as root for this guide. Only the actual h
 
 ## The fundamentals
 
-First, we need some basic tools. To make sure we get the newest versions, first run an update of the apt tool:
-
+First, we need some basic tools. To make sure we get the newest versions, first run an update of the apt tool:  
 `apt update`
 
-To be able to extract the Headless Wallet code from GitHub, we need the “git” program.
-
+To be able to extract the Headless Wallet code from GitHub, we need the “git” program.  
 `apt-get install git`
 
-I also need to be able to fetch stuff from the web, so I install curl to be able to do that:
-
+I also need to be able to fetch stuff from the web, so I install curl to be able to do that:  
 `apt-get install curl software-properties-common`
 
-Since Byteball runs on an SQLite database, you might want to be able to explore the data stored yourself, thereby making it easier to create the logic for the bot if you need to access data in the databases.  
+Since Byteball runs on an SQLite database by default, which is [located in user data folder](https://github.com/byteball/byteballcore#configuring), you might want to be able to explore the data stored yourself, thereby making it easier to create the logic for the bot if you need to access data in the databases. If you wish to [setup Byteball to use MySQL database instead](./#sql-database) then that can be changed with a configuration file.  
 `apt-get install sqlite3`
 
 To make sure all binaries build properly, we need the build-essentials as well:  
@@ -56,11 +53,10 @@ To make sure all binaries build properly, we need the build-essentials as well:
 
 Now - log off the server and log on with the user we initially created \(‘byteball’ in this example\)
 
-The headless wallet is based on nodejs, and one of the easiest way to control node versions is by the script called “nvm”. Just fire these three commands, and you’re all set:
+The headless wallet is based on nodejs, and one of the easiest way to control node versions is by the script called “nvm”. Just fire these three commands, and you’re all set:  
+``nvm_version=`curl --silent https://api.github.com/repos/creationix/nvm/releases/latest | /usr/bin/awk '/tag_name/ { print $2 }' | /bin/sed 's/[",]//g'```
 
-``nvm_version=`curl --silent https://api.github.com/repos/creationix/nvm/releases/latest | /usr/bin/awk '/tag_name/ { print $2 }' | /bin/sed 's/[",]//g'```  
-\(make sure not to miss any of the backticks in the above\)  
-  
+\(make sure not to miss any of the backticks in the above\) and then run:  
 `curl -o- https://raw.githubusercontent.com/creationix/nvm/$nvm_version/install.sh | bash`
 
 And finally start a new shell  

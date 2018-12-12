@@ -88,7 +88,7 @@ If you need to inspect the DAG \(most likely, you need\) and see the details of 
 var db = require('byteballcore/db.js');
 ```
 
-and run any SQL queries on your copy of the Byteball database. You can also add your custom tables. Obviously, you don't want to modify any data outside your custom tables.
+and run any SQL queries on your copy of the Byteball database \(sqlite file is located in [same folder as configuration](https://github.com/byteball/byteballcore#configuring)\). You can also add your custom tables. Obviously, you don't want to modify any data outside your custom tables.
 
 Byteball nodes will use `sqlite` database by default because it needs zero configuration, but it is possible to use MySQL or MariaDB too with a configuration like this:
 
