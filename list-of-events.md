@@ -50,6 +50,8 @@ eventBus.on('connected', () => {
 
 ### Connection to the hub is established and an error is possible
 
+The `url` parameter is protocol + domain + path \(for example: `wss://byteball.org/bb`\).
+
 ```javascript
 eventBus.on('open-' + url, (error) => {
 
