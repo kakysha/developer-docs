@@ -59,12 +59,9 @@ The headless wallet is based on nodejs, and one of the easiest way to control no
 \(make sure not to miss any of the backticks in the above\) and then run:  
 `curl -o- https://raw.githubusercontent.com/creationix/nvm/$nvm_version/install.sh | bash`
 
-And finally start a new shell  
-`bash`
-
 \(thanks to [http://blog.mobnia.com/installing-node-with-nvm-on-a-debian-server/](http://blog.mobnia.com/installing-node-with-nvm-on-a-debian-server/) for the above two commands\)
 
-Then, install version 10 of nodejs simply by using the nvm script:  
+Then close and relaunch SSH terminal and install version 10 of nodejs simply by using the nvm script:  
 `nvm install 10`
 
 ## Installing the Headless Wallet
