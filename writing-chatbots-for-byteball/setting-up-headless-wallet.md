@@ -117,18 +117,23 @@ This setting determines whether your headless wallet will run as a full node or 
 
 The final file would look something like this:
 
-`{  
-  "deviceName": "Byteball Denmark",  
-  "permanent_pairing_secret": "0000",  
-  "control_addresses": [  
-    "DEVICE_ADDRESS_1",  
-    "DEVICE_ADDRESS_2",  
-    "DEVICE_ADDRESS_3"  
-  ],  
-  "payout_address": "YOUR_WALLET_ADDRESS",  
-  "bLight": false  
-}`  
-
+{% code-tabs %}
+{% code-tabs-item title="conf.json" %}
+```javascript
+{
+  "deviceName": "Byteball Denmark",
+  "permanent_pairing_secret": "0000",
+  "control_addresses": [
+    "DEVICE_ADDRESS_1",
+    "DEVICE_ADDRESS_2",
+    "DEVICE_ADDRESS_3"
+  ],
+  "payout_address": "YOUR_WALLET_ADDRESS",
+  "bLight": false
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ### Wallet is ready to be started
 
@@ -171,13 +176,23 @@ ctrl+c`
 
 ### Monitoring logs
 
-Checking the log to see if things are running: \(assuming you started with the ‘1&gt; logfile’ option and not using /dev/null
+Checking the log to see if things are running \(by default, log file is in [same folder as configuration](https://github.com/byteball/byteballcore#configuring)\):
 
 `tail -f ~/headless-byteball/log.txt`
 
 Checking if service runs \(look for the node start.js process\)
 
-`ps -aux |grep node`  
-  
+`ps -aux |grep node`
 
+If everything is running smoothly and you would like to disable writing the log file then this can be done by adding a variable like this to the configuration file:
+
+{% code-tabs %}
+{% code-tabs-item title="conf.json" %}
+```javascript
+{
+	"LOG_FILENAME": "/dev/null"
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
