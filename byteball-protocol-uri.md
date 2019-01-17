@@ -6,23 +6,23 @@ description: >-
 
 # byteball: protocol URI
 
-If you want to open Byteball app for users then there is a `byteball:` protocol [URI ](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Examples)for that. If you are not aware what it is then it's like `mailto:` , `ftp:` , `tel:` or [intents on Android](https://developer.android.com/reference/android/content/Intent). When user visits a link with that protocol then it can open the wallet app in specific screen with pre-filled inputs, helping users to insert long Byteball addresses or amounts without the need to copy-paste them.
+If you want to open Obyte app for users then there is a `byteball:` protocol [URI ](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Examples)for that. If you are not aware what it is then it's like `mailto:` , `ftp:` , `tel:` or [intents on Android](https://developer.android.com/reference/android/content/Intent). When user visits a link with that protocol then it can open the wallet app in specific screen with pre-filled inputs, helping users to insert long wallet addresses or amounts without the need to copy-paste them.
 
 ## Open wallet for sending
 
 We can [request payments with chat bot messages](writing-chatbots-for-byteball/#requesting-payments) and we can use the same commands as links on the website. This is how it will look as a hyperlink:
 
 ```markup
-<a href="byteball:BYTEBALL_ADDRESS?amount=123000&amp;asset=base">open Send screen</a>
+<a href="byteball:WALLET_ADDRESS?amount=123000&amp;asset=base">open Send screen</a>
 ```
 
-`BYTEBALL_ADDRESS` should be replaced with the wallet address where the funds should be sent, `amount` parameter should have `bigInt` type number in bytes \(not KByte, notMByte, not GByte\) and `asset` parameter is optional, by default it is `base` for bytes, but it can be issued [asset unit ID](issuing-assets-on-byteball.md#asset-id) too.
+`WALLET_ADDRESS` should be replaced with the wallet address where the funds should be sent, `amount` parameter should have `bigInt` type number in bytes \(not KByte, notMByte, not GByte\) and `asset` parameter is optional, by default it is `base` for bytes, but it can be issued [asset unit ID](issuing-assets-on-byteball.md#asset-id) too.
 
 One website that heavily relies on this feature is [Currency converter for Byteball](https://tarmo888.github.io/bb-convert/) \([source code](https://github.com/tarmo888/bb-convert)\).
 
 ## Receiving textcoins via link
 
-Textcoins are funds that can be sent via text messages. These text messages contain 12 randomly picked words and by entering them into the wallet app in exact same order, user will get the funds that were added to them. If you have ever received any textcoins then you also know that you don't actually have to re-type or copy-paste those words, textcoin receivers are usually directed to [Byteball textcoin claiming page](https://byteball.org/#textcoin?test-test-test-test-test-test-test-test-test-test-test-test), which has green "Recieve funds" button, which will launch the wallet app with exactly those textcoin words. Byteball textcoin claiming page tries to check first if user has wallet installed, but basically, underneath that button is a hyperlink similar to this:
+Textcoins are funds that can be sent via text messages. These text messages contain 12 randomly picked words and by entering them into the wallet app in exact same order, user will get the funds that were added to them. If you have ever received any textcoins then you also know that you don't actually have to re-type or copy-paste those words, textcoin receivers are usually directed to [Obyte textcoin claiming page](https://byteball.org/#textcoin?test-test-test-test-test-test-test-test-test-test-test-test), which has green "Recieve funds" button, which will launch the wallet app with exactly those textcoin words. Obyte textcoin claiming page tries to check first if user has wallet installed, but basically, underneath that button is a hyperlink similar to this:
 
 ```markup
 <a href="byteball:textcoin?RANDOMLY-PICKED-TWELVE-WORDS">Recieve funds</a>
@@ -32,9 +32,9 @@ So, additionally to [sending textcoins with a bot](sending-textcoins-with-bot.md
 
 ## Pairing with another device
 
-Bot Store on Byteball is like Apple App Store or Google Play Store, but instead of apps, Bot Store has chat bots that are written for Byteball platform. Each Byteball Hub can have each own bots that are shown for users of that app. Currently, most users are using the official wallet app and official Hub, but it makes sense that if somebody forks the wallet, they would use their own Hub for it too. This means that in the future, in order to get your chatbot exposed to maximum amount of users, it needs to get listed on all Hubs.
+Bot Store on Obyte is like Apple App Store or Google Play Store, but instead of apps, Bot Store has chat bots that are written for Obyte platform. Each Obyte Hub can have each own bots that are shown for users of that app. Currently, most users are using the official wallet app and official Hub, but it makes sense that if somebody forks the wallet, they would use their own Hub for it too. This means that in the future, in order to get your chatbot exposed to maximum amount of users, it needs to get listed on all Hubs.
 
-Luckily, adding chat bots to your wallet app is much easier on Byteball than it is to sideload apps on iOS or Android. All you need to do is add the pairing code that bot outputs to your website - everyone who has Byteball app already installed and clicks on it, will get automatically paired with your chatbot. Hyperlink to pairing code would be something like this:
+Luckily, adding chat bots to your wallet app is much easier on Obyte than it is to sideload apps on iOS or Android. All you need to do is add the pairing code that bot outputs to your website - everyone who has Byteball app already installed and clicks on it, will get automatically paired with your chatbot. Hyperlink to pairing code would be something like this:
 
 ```markup
 <a href="byteball:AnpzF9nVTV5JZXzlG2fSnA+8UmjFuBdbqU+rJchz3qcN@byteball.org/bb#0000">Add Sports Betting bot</a>
@@ -58,7 +58,7 @@ Steem Attestation bot uses this method also as an alternative way how to refer o
 
 ## Using protocol URI in QR code
 
-`byteball:` protocol is not only for websites, it could be used in physical world too with QR code. This means you if users have Byteball app installed and they scan any QR code that contains any of the above codes \(just value of the href, without quotes and without the HTML around them\) then installed Byteball app will open the same way. QR code is not just meant to be printed on paper, it can work on websites too, giving the users the ability to use your services cross-device \(browse the website on laptop, scan QR code with phone and complete payment on phone\).
+`byteball:` protocol is not only for websites, it could be used in physical world too with QR code. This means you if users have Obyte app installed and they scan any QR code that contains any of the above codes \(just value of the href, without quotes and without the HTML around them\) then installed Obyte app will open the same way. QR code is not just meant to be printed on paper, it can work on websites too, giving the users the ability to use your services cross-device \(browse the website on laptop, scan QR code with phone and complete payment on phone\).
 
 There are many online QR code generators to create those QR codes manually, but QR codes can be created in real-time too. Following is the example how to create a QR code with `byteball:` protocol link using jQuery.
 
@@ -71,7 +71,7 @@ There are many online QR code generators to create those QR codes manually, but 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js" integrity="sha256-9MzwK2kJKBmsJFdccXoIDDtsbWFh8bjYK/C7UjB1Ay0=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	var wallet_address = 'BYTEBALL_ADDRESS';
+	var wallet_address = 'WALLET_ADDRESS';
 	var byte_amount = 123000;
 	var asset_unit = 'base';
 	$('#qr_code').html('').qrcode({

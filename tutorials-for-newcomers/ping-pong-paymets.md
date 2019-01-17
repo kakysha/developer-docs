@@ -1,6 +1,6 @@
 # Ping-pong paymets
 
-Hello. I’m starting a series of tutorials about creating projects on Byteball. Today we will consider the creation of ping-pong payment bot. First we will need Linux or MacOS, node.js, [Byteball wallet for testnet](https://byteball.org/testnet.html) and [bot-example](https://github.com/byteball/bot-example). So, let's clone it and run
+Hello. I’m starting a series of tutorials about creating projects on Obyte. Today we will consider the creation of ping-pong payment bot. First we will need Linux or MacOS, node.js, [Obyte wallet for testnet](https://byteball.org/testnet.html) and [bot-example](https://github.com/byteball/bot-example). So, let's clone it and run
 
 ```bash
 git clone https://github.com/byteball/bot-example
@@ -15,7 +15,7 @@ We run testnetify.sh for changing it configuration to testnet network. When you 
 
 ![image3.png](https://cdn.steemitimages.com/DQmPAGJos8Rr46zEUXokatvKRQH5CQZDeyxH7b41ArW1mtr/image3.png)
 
-Now add our bot, open the byteball wallet and go to Chat \(below\) &gt; Add a new device &gt; Accept invitation from the other device then insert your pairing code \(instead of an asterisk any word, for example, test\) and click "PAIR”
+Now add our bot, open the Obyte wallet and go to Chat \(below\) &gt; Add a new device &gt; Accept invitation from the other device then insert your pairing code \(instead of an asterisk any word, for example, test\) and click "PAIR”
 
 ![](../.gitbook/assets/image.png)
 
@@ -46,14 +46,14 @@ let assocMyAddressToDeviceAddress = {};
 
 ```javascript
 eventBus.on('paired', (from_address, pairing_secret) => {
-  const device = require('byteballcore/device.js');
+  const device = require('ocore/device.js');
   device.sendMessageToDevice(from_address, 'text', "Please send me your address");
 });
 
 eventBus.on('text', (from_address, text) => {
   text = text.trim();
 
-  const device = require('byteballcore/device.js');
+  const device = require('ocore/device.js');
   device.sendMessageToDevice(from_address, 'text', "Please send me your address");
 });
 ```
@@ -74,11 +74,11 @@ Great, now we will teach our bot to check and save the user's address, and also 
 
 ```javascript
 eventBus.on('text', (from_address, text) => {
-  const device = require('byteballcore/device.js');
+  const device = require('ocore/device.js');
   text = text.trim();
   if (validationUtils.isValidAddress(text)) {
      assocDeviceAddressToPeerAddress[from_address] = text;
-     device.sendMessageToDevice(from_address, 'text', 'Saved your Byteball address');
+     device.sendMessageToDevice(from_address, 'text', 'Saved your wallet address');
      headlessWallet.issueNextMainAddress((address) => {
         assocMyAddressToDeviceAddress[address] = from_address;
         assocDeviceAddressToMyAddress[from_address] = address;
@@ -92,13 +92,13 @@ eventBus.on('text', (from_address, text) => {
 });
 ```
 
-This time we used **issueNextMainAddress**, this function creates a new byteball address. We need it to distinguish between payments.
+This time we used **issueNextMainAddress**, this function creates a new wallet address. We need it to distinguish between payments.
 
 Now the most important thing! First, we need to inform the user that we have received the payment and waiting until it becomes stable.
 
 ```javascript
 eventBus.on('new_my_transactions', (arrUnits) => {
-  const device = require('byteballcore/device.js');
+  const device = require('ocore/device.js');
   db.query("SELECT address, amount, asset FROM outputs WHERE unit IN (?)", [arrUnits], rows => {
      rows.forEach(row => {
         let deviceAddress = assocMyAddressToDeviceAddress[row.address];
@@ -115,7 +115,7 @@ After that, we send the user his payment minus the payment fee:
 
 ```javascript
 eventBus.on('my_transactions_became_stable', (arrUnits) => {
-  const device = require('byteballcore/device.js');
+  const device = require('ocore/device.js');
   db.query("SELECT address, amount, asset FROM outputs WHERE unit IN (?)", [arrUnits], rows => {
      rows.forEach(row => {
         let deviceAddress = assocMyAddressToDeviceAddress[row.address];

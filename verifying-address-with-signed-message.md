@@ -27,7 +27,7 @@ You can parse and validate it with this code:
 let arrSignedMessageMatches = text.match(/\(signed-message:(.+?)\)/);
 if (arrSignedMessageMatches){
 	let signedMessageBase64 = arrSignedMessageMatches[1];
-	var validation = require('byteballcore/validation.js');
+	var validation = require('ocore/validation.js');
 	var signedMessageJson = Buffer(signedMessageBase64, 'base64').toString('utf8');
 	try{
 		var objSignedMessage = JSON.parse(signedMessageJson);

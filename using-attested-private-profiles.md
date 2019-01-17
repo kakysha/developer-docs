@@ -6,7 +6,7 @@ description: >-
 
 # Using attested private profiles
 
-Users can have some of their data verified by a trusted third party \(attestor\). The attestor posts an attestation record to the Byteball DAG, this record serves as a proof for relying parties that a user was attested. The attested data itself can be either posted publicly by the attestor, or only a hash of this data is posted while the plaintext data is saved in the wallet of the attested user. In the latter case, the user can disclose the attested data to selected peers, for example to your bot.
+Users can have some of their data verified by a trusted third party \(attestor\). The attestor posts an attestation record to the Obyte DAG, this record serves as a proof for relying parties that a user was attested. The attested data itself can be either posted publicly by the attestor, or only a hash of this data is posted while the plaintext data is saved in the wallet of the attested user. In the latter case, the user can disclose the attested data to selected peers, for example to your bot.
 
 This can be used to KYC your users prior to providing a service, see [https://medium.com/byteball/bringing-identity-to-crypto-b35964feee8e](https://medium.com/byteball/bringing-identity-to-crypto-b35964feee8e). You may need it e.g. to comply with regulations or protect against fraud.
 
@@ -49,10 +49,10 @@ where `privateProfileJsonBase64` is a base64-encoded JSON of the private profile
 let arrProfileMatches = text.match(/\(profile:(.+?)\)/);
 ```
 
-Then, decode the profile using `private_profile.js` module in `byteballcore`:
+Then, decode the profile using `private_profile.js` module in `ocore`:
 
 ```javascript
-const privateProfile = require('byteballcore/private_profile.js');
+const privateProfile = require('ocore/private_profile.js');
 let privateProfileJsonBase64 = arrProfileMatches[1];
 let objPrivateProfile = privateProfile.getPrivateProfileFromJsonBase64(privateProfileJsonBase64);
 ```

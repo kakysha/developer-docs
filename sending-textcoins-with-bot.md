@@ -7,7 +7,7 @@ description: >-
 
 # Sending textcoins with bot
 
-Sending textcoins from server-side \(headless\) wallets is easy: you use the same functions you normally use to send to Byteball addresses but instead of the recipient's Byteball address you write:
+Sending textcoins from server-side \(headless\) wallets is easy: you use the same functions you normally use to send to Obyte addresses but instead of the recipient's Obyte address you write:
 
 * `textcoin:userEmailAddress` for sending to email, or
 * `textcoin:someUniqueIdentifierOtherThanEmail` for sending via any other text based media

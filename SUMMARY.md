@@ -1,15 +1,15 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Writing chatbots on Byteball](writing-chatbots-for-byteball/README.md)
+* [Writing chatbots on Obyte](writing-chatbots-for-byteball/README.md)
   * [Setting up headless wallet](writing-chatbots-for-byteball/setting-up-headless-wallet.md)
 * [Tutorials for newcomers](tutorials-for-newcomers/README.md)
   * [Ping-pong paymets](tutorials-for-newcomers/ping-pong-paymets.md)
-  * [Log in on website with Byteball](tutorials-for-newcomers/log-in-on-website-with-byteball.md)
+  * [Logging into website](tutorials-for-newcomers/log-in-on-website-with-byteball.md)
   * [Weather oracle](tutorials-for-newcomers/weather-oracle.md)
   * [Bet on weather bot](tutorials-for-newcomers/bet-on-weather-bot.md)
 * [Smart contract definitions](smart-contracts.md)
-* [Issuing assets on Byteball](issuing-assets-on-byteball.md)
+* [Issuing assets on Obyte](issuing-assets-on-byteball.md)
 * [Sending textcoins with bot](sending-textcoins-with-bot.md)
 * [Using attested private profiles](using-attested-private-profiles.md)
 * [Verifying address with signed message](verifying-address-with-signed-message.md)

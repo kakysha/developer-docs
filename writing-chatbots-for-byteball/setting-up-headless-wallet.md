@@ -8,7 +8,7 @@ Setting up a Headless wallet is required for those wanting to build their own ch
 
 The first thing you should consider, is whether you want to run your bot on a full node or a light node. When setting up the server, the choice to run on a full node will mean you need to make sure to have enough disk space available. The installation is the same whether you run a full node or a light node, but running a full node will allow your bot to have access to all units ever posted to the DAG and thereby be able to perform more complex tasks.
 
-Most VPS providers allow you to choose an operating system, and since this guide will be based on Debian 9, you might want to find a provider that offers this as one of their options. Since I will be running a full node, I also must make sure to have enough disk space available and that it is on SSD, since HDD will be too slow. At the time of writing this guide, the required disk space for the full Byteball DAG is about 33 GB but always make sure to have enough or at least the option to add more, should you need it.
+Most VPS providers allow you to choose an operating system, and since this guide will be based on Debian 9, you might want to find a provider that offers this as one of their options. Since I will be running a full node, I also must make sure to have enough disk space available and that it is on SSD, since HDD will be too slow. At the time of writing this guide, the required disk space for the full Obyte DAG is about 33 GB but always make sure to have enough or at least the option to add more, should you need it.
 
 * 1 server \(with Debian in this case\)
 * At least 40-50 GB of fast SSD disk space
@@ -28,9 +28,9 @@ You are now logged on to your server:
 
 ![](../.gitbook/assets/image%20%285%29.png)
 
-Running the headless wallet as root is not recommended, so the first thing I do, is create the user we will run the hub as. I chose the username “byteball”.
+Running the headless wallet as root is not recommended, so the first thing I do, is create the user we will run the hub as. I chose the username “obyte”.
 
-`adduser byteball`
+`adduser obyte`
 
 I will be installing all prerequisites as root for this guide. Only the actual headless wallet stuff will be installed from the user we just created. For now, stay logged in as root.
 
@@ -45,13 +45,13 @@ To be able to extract the Headless Wallet code from GitHub, we need the “git�
 I also need to be able to fetch stuff from the web, so I install curl to be able to do that:  
 `apt-get install curl software-properties-common`
 
-Since Byteball runs on an SQLite database by default, which is [located in user data folder](https://github.com/byteball/byteballcore#configuring), you might want to be able to explore the data stored yourself, thereby making it easier to create the logic for the bot if you need to access data in the databases. If you wish to [setup Byteball to use MySQL database instead](./#sql-database) then that can be changed with a configuration file.  
+Since Obyte runs on an SQLite database by default, which is [located in user data folder](https://github.com/byteball/byteballcore#configuring), you might want to be able to explore the data stored yourself, thereby making it easier to create the logic for the bot if you need to access data in the databases. If you wish to [setup Obyte to use MySQL database instead](./#sql-database) then that can be changed with a configuration file.  
 `apt-get install sqlite3`
 
 To make sure all binaries build properly, we need the build-essentials as well:  
 `apt-get install -y build-essential`
 
-Now - log off the server and log on with the user we initially created \(‘byteball’ in this example\)
+Now - log off the server and log on with the user we initially created \(‘obyte’ in this example\)
 
 The headless wallet is based on nodejs, and one of the easiest way to control node versions is by the script called “nvm”. Just fire these three commands, and you’re all set:  
 ``nvm_version=`curl --silent https://api.github.com/repos/creationix/nvm/releases/latest | /usr/bin/awk '/tag_name/ { print $2 }' | /bin/sed 's/[",]//g'```
@@ -66,17 +66,17 @@ Then close and relaunch SSH terminal and install version 10 of nodejs simply by 
 
 ## Installing the Headless Wallet
 
-So far so good - we’re now almost ready to start actually installing the headless wallet. But first. We need to find the repository that we want to clone. Go to [https://github.com/byteball/headless-byteball](https://github.com/byteball/headless-byteball) and click the “Clone or download” button:
+So far so good - we’re now almost ready to start actually installing the headless wallet. But first. We need to find the repository that we want to clone. Go to [https://github.com/byteball/headless-obyte](https://github.com/byteball/headless-byteball) and click the “Clone or download” button:
 
 ![](../.gitbook/assets/image%20%286%29.png)
 
 Copy the URL from there and clone the repository
 
-`git clone https://github.com/byteball/headless-byteball.git`
+`git clone https://github.com/byteball/headless-obyte.git`
 
-It creates a dir called byteball-hub.
+It creates a directory called headless-obyte.
 
-`cd headless-byteball`
+`cd headless-obyte`
 
 Then install it
 
@@ -84,18 +84,18 @@ Then install it
 
 ## Configuring and starting your headless wallet
 
-In your .config folder, you should create a file called conf.json and edit it. It will contain values that is used by the headless wallet. They override the values that you can find in the file called conf.js located in your headless-byteball folder.
+In your .config folder, you should create a file called conf.json and edit it. It will contain values that is used by the headless wallet. They override the values that you can find in the file called conf.js located in your headless-obyte folder.
 
-`cd ~/.config/headless-byteball/  
+`cd ~/.config/headless-obyte/  
 nano conf.json`
 
 I will briefly explain each of the entries, you should put in the file \(if you’re not familiar with the structure of a json object, you could check out sites such as jsoneditoronline.org\)
 
-There is also a detailed explanation of the values on [https://github.com/byteball/headless-byteball](https://github.com/byteball/headless-byteball) at the section called “Customize”.
+There is also a detailed explanation of the values on [https://github.com/byteball/headless-obyte](https://github.com/byteball/headless-byteball) at the section called “Customize”.
 
 ### deviceName config
 
-This is pretty much self explanatory. The name of your device. This is the name that others will see when they pair with your bot. It’s not to be confused with the bot’s name, which you will have to have the Byteball hub-operator create for you.
+This is pretty much self explanatory. The name of your device. This is the name that others will see when they pair with your bot. It’s not to be confused with the bot’s name, which you will have to have the Obyte hub-operator create for you.
 
 ### permanent\_pairing\_secret config
 
@@ -178,7 +178,7 @@ ctrl+c`
 
 Checking the log to see if things are running \(by default, log file is in [same folder as configuration](https://github.com/byteball/byteballcore#configuring)\):
 
-`tail -f ~/headless-byteball/log.txt`
+`tail -f ~/headless-obyte/log.txt`
 
 Checking if service runs \(look for the node start.js process\)
 

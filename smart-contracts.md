@@ -1,16 +1,16 @@
 ---
 description: >-
-  Smart contracts in Byteball are expressions that evaluate to true or false,
-  the money stored on the contract can be spent only when it evaluates to true.
+  Smart contracts on Obyte are expressions that evaluate to true or false, the
+  money stored on the contract can be spent only when it evaluates to true.
 ---
 
 # Smart contract definitions
 
 The smart contract language is declarative, meaning that it expresses **what** conditions must be met to allow movement of money, rather than **how** the decisions are made. This makes it easy to see that the implementation of the contract matches its intent, and hard to make mistakes \(which cannot be undone in distributed ledgers\). However, the language is not as powerful as Ethereum’s Solidity, it is not Turing-complete, it doesn’t allow to code any program, rather it is a domain specific language for money on the distributed ledger.
 
-Money in Byteball is stored on addresses. Address is just a hash \(plus checksum\) of an address definition, and the address definition is an expression in the Byteball smart contract language that evaluates to either `true` or `false`.
+Money on Obyte is stored on addresses. Address is just a hash \(plus checksum\) of an address definition, and the address definition is an expression in the Obyte smart contract language that evaluates to either `true` or `false`.
 
-Code examples how to use these definitions can be found on "[Writing chatbots on Byteball](writing-chatbots-for-byteball/#creating-contract-definition)" page.
+Code examples how to use these definitions can be found on "[Writing chatbots on Obyte](writing-chatbots-for-byteball/#creating-contract-definition)" page.
 
 ## Authentication
 
@@ -158,7 +158,7 @@ These clauses inspect data **outside** of the current unit.
 
 ### in data feed
 
-`in data feed` clause can be used to make queries about data previously stored in Byteball:
+`in data feed` clause can be used to make queries about data previously stored on Obyte:
 
 ```javascript
 ["in data feed", [
@@ -169,7 +169,7 @@ These clauses inspect data **outside** of the current unit.
 ]]
 ```
 
-This condition evaluates to `true` if there is at least one previous message stored in Byteball database that has “data feed name” equal to “expected value”. Instead of `=`, you can also use `>`, `<`, `>=`, `<=`, or `!=` The data feed must be posted to Byteball decentralized database by one of the oracles whose addresses are “ADDRESS1”, “ADDRESS2”, … Since oracles post to the common database, we call them on-chain oracles.
+This condition evaluates to `true` if there is at least one previous message stored in Obyte database that has “data feed name” equal to “expected value”. Instead of `=`, you can also use `>`, `<`, `>=`, `<=`, or `!=` The data feed must be posted to Obyte decentralized database by one of the oracles whose addresses are “ADDRESS1”, “ADDRESS2”, … Since oracles post to the common database, we call them on-chain oracles.
 
 On-chain oracles are a very powerful thing indeed. For example, this address definition represents a binary option:
 
@@ -276,7 +276,7 @@ A subdefinition may require that the transaction be cosigned by another address:
 
 ### has, has one
 
-A definition can also include queries about the transaction itself, which can be used for example to code limit orders on a trustless exchange. Assume that a user wants to buy 1,200 units of some asset for which he is willing to pay no more than 1,000 bytes \(the native currency of Byteball\). Also, he is not willing to stay online all the time while he is waiting for a seller. He would rather just post an order at an exchange and let it execute when a matching seller comes along. He can create a limit order by sending 1,000 bytes to an address defined by this definition, which makes use of `has` clause:
+A definition can also include queries about the transaction itself, which can be used for example to code limit orders on a trustless exchange. Assume that a user wants to buy 1,200 units of some asset for which he is willing to pay no more than 1,000 bytes \(the native currency of Obyte\). Also, he is not willing to stay online all the time while he is waiting for a seller. He would rather just post an order at an exchange and let it execute when a matching seller comes along. He can create a limit order by sending 1,000 bytes to an address defined by this definition, which makes use of `has` clause:
 
 ```javascript
 ["or", [

@@ -7,7 +7,7 @@ description: 'This is a message type, which gets a reply with a response type me
 Example:
 
 ```javascript
-const network = require('byteballcore/network.js');
+const network = require('ocore/network.js');
 const ws = network.getInboundDeviceWebSocket(device_address);
 
 // function parameters: websocket, command, params, bReroutable, callback
@@ -198,7 +198,7 @@ This requests returns response with unit data. Example shows a unit, which creat
 
 ### **Send transaction data**
 
-This requests returns response whether composed unit was accepted or not. Unit object can be composed with `byteballcore/composer.js`.
+This requests returns response whether composed unit was accepted or not. Unit object can be composed with `ocore/composer.js`.
 
 {% code-tabs %}
 {% code-tabs-item title="request.json" %}
@@ -976,7 +976,7 @@ It is possible for users to post a profile information about themselves, this re
 
 ### Custom Request
 
-You can add your own communication protocol on top of the Byteball one. See event [there](../list-of-events.md#event-for-custom-request).
+You can add your own communication protocol on top of the Obyte one. See event [there](../list-of-events.md#event-for-custom-request).
 
 {% code-tabs %}
 {% code-tabs-item title="request.json" %}

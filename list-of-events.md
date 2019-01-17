@@ -7,7 +7,7 @@ description: >-
 # List of events
 
 ```javascript
-const eventBus = require('byteballcore/event_bus.js');
+const eventBus = require('ocore/event_bus.js');
 ```
 
 ### Wallet is ready \(only headless wallet\)

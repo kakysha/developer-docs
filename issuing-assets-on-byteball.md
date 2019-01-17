@@ -1,26 +1,26 @@
 ---
 description: >-
-  On Byteball, users can issue new assets and define rules that govern their
+  On Obyte, users can issue new assets and define rules that govern their
   transferability.
 ---
 
-# Issuing assets on Byteball
+# Issuing assets on Obyte
 
-To start a user-defined asset on Byteball, you need to complete two steps
+To start a user-defined asset on Obyte, you need to complete two steps
 
-* Define your asset. Asset definition is a special type of message \(distinct from payments\) that you send to the Byteball DAG
+* Define your asset. Asset definition is a special type of message \(distinct from payments\) that you send to the Obyte DAG
 * Issue the asset by sending the 1st transaction that spends it
 
 ## Defining a new asset
 
-See a sample of asset-defining transaction at [https://github.com/byteball/headless-byteball/blob/master/play/create\_asset.js](https://github.com/byteball/headless-byteball/blob/master/play/create_asset.js).
+See a sample of asset-defining transaction at [https://github.com/byteball/headless-obyte/blob/master/play/create\_asset.js](https://github.com/byteball/headless-byteball/blob/master/play/create_asset.js).
 
 To define a new asset you need a headless wallet. In your dependencies:
 
 ```javascript
 "dependencies": {
-	"headless-byteball": "git+https://github.com/byteball/headless-byteball.git",
-	"byteballcore": "^0.2.33",
+	"headless-obyte": "git+https://github.com/byteball/headless-obyte.git",
+	"ocore": "^0.2.33",
 	.....
 }
 ```
@@ -28,9 +28,9 @@ To define a new asset you need a headless wallet. In your dependencies:
 Call this function to create a new asset definition and broadcast it:
 
 ```javascript
-var headlessWallet = require('headless-byteball');
-var network = require('byteballcore/network.js');
-var composer = require('byteballcore/composer.js');
+var headlessWallet = require('headless-obyte');
+var network = require('ocore/network.js');
+var composer = require('ocore/composer.js');
 
 composer.composeAssetDefinitionJoint(my_address, asset, headlessWallet.signer,
     {
@@ -144,8 +144,10 @@ The new asset can be issued after its definition is confirmed. To issue, you nee
 
 You cannot use `wallet.sendMultiPayment()`, `headlessWallet.issueChangeAddressAndSendPayment()`and similar functions because they can do only transfers and they don't know about addresses that can issue new coins. Instead, you have to use lower level functions:
 
-* `composeAndSaveDivisibleAssetPaymentJoint` from `byteballcore/divisible_asset.js`
-* `composeAndSaveIndivisibleAssetPaymentJoint` from `byteballcore/indivisible_asset.js` See [https://github.com/byteball/headless-byteball/blob/master/play/create\_divisible\_asset\_payment.js](https://github.com/byteball/headless-byteball/blob/master/play/create_divisible_asset_payment.js) and [https://github.com/byteball/headless-byteball/blob/master/play/create\_indivisible\_asset\_payment.js](https://github.com/byteball/headless-byteball/blob/master/play/create_indivisible_asset_payment.js) for examples.
+* `composeAndSaveDivisibleAssetPaymentJoint` from `ocore/divisible_asset.js`
+* `composeAndSaveIndivisibleAssetPaymentJoint` from `ocore/indivisible_asset.js`
+
+See [create\_divisible\_asset\_payment.js](https://github.com/byteball/headless-byteball/blob/master/play/create_divisible_asset_payment.js) and [create\_indivisible\_asset\_payment.js](https://github.com/byteball/headless-byteball/blob/master/play/create_indivisible_asset_payment.js) for examples.
 
 See an example of how an asset can be both defined and issued in a single script [https://github.com/byteball/ico-bot/blob/master/scripts/issue\_tokens.js](https://github.com/byteball/ico-bot/blob/master/scripts/issue_tokens.js)
 

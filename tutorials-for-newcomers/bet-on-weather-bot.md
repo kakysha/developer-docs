@@ -44,7 +44,7 @@ eventBus.on('text', (from_address, text) => {
      text = text.trim().toLowerCase();
      if (!steps[from_address]) steps[from_address] = 'start';
      let step = steps[from_address];
-     const device = require('byteballcore/device.js');
+     const device = require('ocore/device.js');
      if (validationUtils.isValidAddress(text.toUpperCase())) { // If address sent to us - save it.
         assocDeviceAddressToAddress[from_address] = text.toUpperCase();
         return device.sendMessageToDevice(from_address, 'text', 'I saved your address. Send me the name of the city');
@@ -114,7 +114,7 @@ We need a separate function
 
 ```javascript
 function createContract(myAddress, peerAddress, myAmount, peerAmount, peerDeviceAddress, name, operator, value, time, cb) {
-  const device = require('byteballcore/device');
+  const device = require('ocore/device');
   let timeout = Date.now() + 10 * 60 * 1000;
   let inverseOperator = operator === '>=' ? '<' : '>';
   let arrSeenConditionPeer = ['seen', {
@@ -174,7 +174,7 @@ function createContract(myAddress, peerAddress, myAmount, peerAmount, peerDevice
      }
   };
  
-  let walletDefinedByAddresses = require('byteballcore/wallet_defined_by_addresses.js');
+  let walletDefinedByAddresses = require('ocore/wallet_defined_by_addresses.js');
   walletDefinedByAddresses.createNewSharedAddress(arrDefinition, assocSignersByPath, {
      ifError: (err) => {
         cb(err);
@@ -241,10 +241,10 @@ This is how we create a message that contains a contract and a payment request.
 Create correspondents.js
 
 ```javascript
-const db = require('byteballcore/db');
+const db = require('ocore/db');
 
 exports.addCorrespondent = (code, name, cb) => {
-  let device = require('byteballcore/device');
+  let device = require('ocore/device');
  
   function handleCode(code) {
      let matches = code.match(/^([\w\/+]+)@([\w.:\/-]+)#([\w\/+-]+)$/);
@@ -298,7 +298,7 @@ We need to tell the oracle to check and publish the weather at the specified tim
 
 ```javascript
 function findOracleAndSendMessage(value, cb) {
-  const device = require('byteballcore/device');
+  const device = require('ocore/device');
   correspondents.findCorrespondentByPairingCode(conf.oracle_pairing_code, (correspondent) => {
      if (!correspondent) {
         correspondents.addCorrespondent(conf.oracle_pairing_code, 'flight oracle', (err, device_address) => {

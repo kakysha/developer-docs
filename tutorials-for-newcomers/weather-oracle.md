@@ -20,7 +20,7 @@ headlessWallet.readSingleAddress(address => {
 
 eventBus.on('text', (from_address, text) => {
   text = text.trim();
-  const device = require('byteballcore/device.js');
+  const device = require('ocore/device.js');
   const args = text.toLowerCase().split(':');
   if (args.length === 2){
      switch (args[0]) {
@@ -81,9 +81,9 @@ Now we come to the main point. We need to publish data\_feed
 
 ```javascript
 function postDataFeed(city, time, temp){
-  const network = require('byteballcore/network.js');
-  const composer = require('byteballcore/composer.js');
-  const objectHash = require('byteballcore/object_hash.js');
+  const network = require('ocore/network.js');
+  const composer = require('ocore/composer.js');
+  const objectHash = require('ocore/object_hash.js');
  
   let data_feed = {};
   data_feed[city + '_' + time] = temp;

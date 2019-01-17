@@ -1,6 +1,6 @@
-# Log in on website with Byteball
+# Logging into website
 
-Hey guys! Today we will learn how to log in using a Byteball wallet, and also make paid access to the article. To do this, we need project that i have prepared for you [Tutorial-2-source](https://github.com/xJeneKx/Tutorial-2-source). Install it.
+Hey guys! Today we will learn how to log in using a Obyte wallet, and also make paid access to the article. To do this, we need project that i have prepared for you [Tutorial-2-source](https://github.com/xJeneKx/Tutorial-2-source). Install it.
 
 ```bash
 git clone https://github.com/xJeneKx/Tutorial-2-source
@@ -45,7 +45,7 @@ Save our device address, we will need it later.
 
 ```javascript
 eventBus.on('paired', (from_address, pairing_secret) => {
-  let device = require('byteballcore/device');
+  let device = require('ocore/device');
   assocCodeToDeviceAddress[pairing_secret] = from_address;
   device.sendMessageToDevice(from_address, 'text', 'ok');
 });
@@ -160,7 +160,7 @@ And payment processing
 
 ```javascript
 eventBus.on('new_my_transactions', (arrUnits) => {
-  const device = require('byteballcore/device.js');
+  const device = require('ocore/device.js');
   db.query("SELECT address, amount, asset FROM outputs WHERE unit IN (?)", [arrUnits], rows => {
      rows.forEach(row => {
         if (row.amount === 100 && row.asset === null) {

@@ -20,10 +20,10 @@ and pass the following parameters:
 * `order_id`: \(string\) unique id of the order associated with the purchase. You should never request cashback for the same order id again.
 * `description`: \(string\) description of the purchase.
 * `merchant`: \(string\) this field is used by payment processors only to identify the individual merchant. When another purchase is made from the same merchant, this fiels should be the same.
-* `address`: \(string\) Byteball address or email address of the customer. The cashback will be sent to this address. If it is email address, a [textcoin](https://medium.com/byteball/sending-cryptocurrency-to-email-5c9bce22b8a9) will be sent. If the textcoin is not claimed within 1 week, it will be taken back.
+* `address`: \(string\) Wallet address or email address of the customer. The cashback will be sent to this address. If it is email address, a [textcoin](https://medium.com/byteball/sending-cryptocurrency-to-email-5c9bce22b8a9) will be sent. If the textcoin is not claimed within 1 week, it will be taken back.
 * `currency`: \(string\) currency of the purchase. Supported values: USD, EUR, RUR, GBYTE, BTC. If the purchase was paid in any other currency, you should convert its amount to any of the supported currencies except GBYTE.
 * `currency_amount`: \(number\) amount of the purchase in `currency`.
-* `partner_cashback_percentage`: \(number\) the percentage of the amount you want to pay to the customer out of your own funds in addition to the regular cashback. Byteball will add the same percentage out of the distribution fund \(merchant match\). Default it 0. You have to deposit the funds in advance in order to fund this option.
+* `partner_cashback_percentage`: \(number\) the percentage of the amount you want to pay to the customer out of your own funds in addition to the regular cashback. Obyte will add the same percentage out of the distribution fund \(merchant match\). Default it 0. You have to deposit the funds in advance in order to fund this option.
 * `purchase_unit`: \(string\) unit \(transaction id\) of the customer's purchase if it was paid in GBYTE.
 
 ### Response format

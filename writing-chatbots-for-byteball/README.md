@@ -4,20 +4,20 @@ description: >-
   usually connected with payments.
 ---
 
-# Writing chatbots on Byteball
+# Writing chatbots on Obyte
 
 ## Prerequisites
 
 To run a chatbot, you need to [setup a headless node](setting-up-headless-wallet.md) first. Headless nodes are full nodes by default. A subset of the functionality might work in light nodes too, but keep in mind that it was designed for full nodes only.
 
-Create a new node.js package for your bot. You will definitely need modules from `byteballcore`\(add it to your project's dependencies\) and if you are going to send payments, you will also need `headless-byteball`. Your `package.json` should list these dependencies:
+Create a new node.js package for your bot. You will definitely need modules from `ocore`\(add it to your project's dependencies\) and if you are going to send payments, you will also need `headless-obyte`. Your `package.json` should list these dependencies:
 
 {% code-tabs %}
 {% code-tabs-item title="package.json" %}
 ```javascript
 "dependencies": {
-	"headless-byteball": "git+https://github.com/byteball/headless-byteball.git",
-	"byteballcore": "^0.2.33",
+	"headless-obyte": "git+https://github.com/byteball/headless-obyte.git",
+	"ocore": "^0.2.33",
 	.....
 }
 ```
@@ -27,7 +27,7 @@ Create a new node.js package for your bot. You will definitely need modules from
 In your module, `require()` wallet.js even if you are not using any of its functions \(it handles messages from the hub\):
 
 ```javascript
-require('byteballcore/wallet.js');
+require('ocore/wallet.js');
 ```
 
 ### Configuration
@@ -51,7 +51,7 @@ When you start your node, it will print its full pairing code:
 
 The pairing code consists of your node's public key \(device public key\), hub address, and pairing secret \(after \#\).
 
-Publish this pairing code on your website as a link with `byteball:` scheme, users will be able to open a chat with your bot by clicking your link \(the link opens in their Byteball app and starts a chat\):
+Publish this pairing code on your website as a link with `byteball:` scheme, users will be able to open a chat with your bot by clicking your link \(the link opens in their Obyte app and starts a chat\):
 
 ```markup
 <a href="byteball:A2WMb6JEIrMhxVk+I0gIIW1vmM3ToKoLkNF8TqUV5UvX@byteball.org/bb#0000">Chat with my test bot</a>
@@ -85,12 +85,12 @@ Most bots out there expect user's machine to have UNIX sendmail and by default `
 If you need to inspect the DAG \(most likely, you need\) and see the details of any transaction, require the `db` module
 
 ```javascript
-var db = require('byteballcore/db.js');
+var db = require('ocore/db.js');
 ```
 
-and run any SQL queries on your copy of the Byteball database \(sqlite file is located in [same folder as configuration](https://github.com/byteball/byteballcore#configuring)\). You can also add your custom tables. Obviously, you don't want to modify any data outside your custom tables.
+and run any SQL queries on your copy of the Obyte database \(sqlite file is located in [same folder as configuration](https://github.com/byteball/byteballcore#configuring)\). You can also add your custom tables. Obviously, you don't want to modify any data outside your custom tables.
 
-Byteball nodes will use `sqlite` database by default because it needs zero configuration, but it is possible to use MySQL or MariaDB too with a configuration like this:
+Obyte nodes will use `sqlite` database by default because it needs zero configuration, but it is possible to use MySQL or MariaDB too with a configuration like this:
 
 {% code-tabs %}
 {% code-tabs-item title="conf.json" %}
@@ -114,7 +114,7 @@ When a user pairs his device with your bot \(e.g. by clicking the link to your b
 
 ```javascript
 eventBus.on('paired', function(from_address, pairing_secret){
-	var device = require('byteballcore/device.js');
+	var device = require('ocore/device.js');
 	device.sendMessageToDevice(from_address, 'text', 'Hi! I am bot.');
 });
 ```
@@ -138,7 +138,7 @@ exports.permanent_pairing_secret = '*';
 To receive chat messages, subscribe to 'text' events on event bus:
 
 ```javascript
-var eventBus = require('byteballcore/event_bus.js');
+var eventBus = require('ocore/event_bus.js');
 eventBus.on('text', function(from_address, user_message){
     // your code here
 });
@@ -151,16 +151,16 @@ eventBus.on('text', function(from_address, user_message){
 Messages to user's device can be sent with `sendMessageToDevice` function in `device` module:
 
 ```javascript
-var device = require('byteballcore/device.js');
+var device = require('ocore/device.js');
 device.sendMessageToDevice(user_device_address, 'text', 'Message from bot to user');
 ```
 
 So, in case we want to echo back what user wrote, we could combine those two above examples into this:
 
 ```javascript
-var eventBus = require('byteballcore/event_bus.js');
+var eventBus = require('ocore/event_bus.js');
 eventBus.on('text', function(from_address, user_message){
-    var device = require('byteballcore/device.js');
+    var device = require('ocore/device.js');
     device.sendMessageToDevice(from_address, 'text', user_message);
 });
 ```
@@ -187,16 +187,16 @@ Example command: we suggest to [buy (number) apples](suggest-command:buy 5 apple
 
 ## Payments
 
-One of the core features that almost every existing Byteball chatbot has is sending and receiving payments. This enables bot developers immediately add payment to the service they could be providing without the need for any other third-party payment processor.
+One of the core features that almost every existing Obyte chatbot has is sending and receiving payments. This enables bot developers immediately add payment to the service they could be providing without the need for any other third-party payment processor.
 
 ### Requesting payments
 
-When you include a valid Byteball address anywhere in the text of your response to the user, the address will be automatically highlighted in the user's chat window, and after clicking it the user will be able to pay arbitrary amount of arbitrary asset to this address.
+When you include a valid Obyte address anywhere in the text of your response to the user, the address will be automatically highlighted in the user's chat window, and after clicking it the user will be able to pay arbitrary amount of arbitrary asset to this address.
 
 When you want to request a specific amount of a specific asset, format your payment request this way:
 
 ```text
-Any text before [payment description, will be ignored](byteball:YOURBYTEBALLADDRESS?amount=123000&asset=base) any text after
+Any text before [payment description, will be ignored](byteball:YOUR_WALLET_ADDRESS?amount=123000&asset=base) any text after
 ```
 
 Amount is in the smallest units, such as bytes. If you omit `&asset=...` part, base asset \(bytes\) is assumed. If you want to request payment in another asset, indicate its identifier such as `oj8yEksX9Ubq7lLc+p6F2uyHUuynugeVq4+ikT67X6E=` for blackbytes \(don't forget to url-encode it\).
@@ -204,11 +204,11 @@ Amount is in the smallest units, such as bytes. If you omit `&asset=...` part, b
 You will likely want to generate a unique payment address per user, per transaction. This code sample might help:
 
 ```javascript
-var walletDefinedByKeys = require('byteballcore/wallet_defined_by_keys.js');
+var walletDefinedByKeys = require('ocore/wallet_defined_by_keys.js');
 walletDefinedByKeys.issueNextAddress(wallet, 0, function(objAddress){
-	var byteball_address = objAddress.address;
+	var wallet_address = objAddress.address;
 	// work with this address, then send it over to the user
-	device.sendMessageToDevice(user_device_address, 'text', "Please pay to "+byteball_address);
+	device.sendMessageToDevice(user_device_address, 'text', "Please pay to "+wallet_address);
 });
 ```
 
@@ -217,7 +217,7 @@ walletDefinedByKeys.issueNextAddress(wallet, 0, function(objAddress){
 If you include a headless wallet
 
 ```javascript
-var headlessWallet = require('headless-byteball');
+var headlessWallet = require('headless-obyte');
 ```
 
 you can get notified when any of your addresses receives a payment
@@ -256,13 +256,13 @@ eventBus.on('mci_became_stable', function(mci){
 To send payments, you need to include a headless wallet
 
 ```javascript
-var headlessWallet = require('headless-byteball');
+var headlessWallet = require('headless-obyte');
 ```
 
 and use this function:
 
 ```javascript
-headlessWallet.issueChangeAddressAndSendPayment(asset, amount, user_byteball_address, user_device_address, function(err, unit){
+headlessWallet.issueChangeAddressAndSendPayment(asset, amount, user_wallet_address, user_device_address, function(err, unit){
 	if (err){
 		// something went wrong, maybe put this payment on a retry queue
 		return;
@@ -273,16 +273,16 @@ headlessWallet.issueChangeAddressAndSendPayment(asset, amount, user_byteball_add
 
 `asset` is the asset you are paying in \(`null` for bytes\), `amount` is payment amount in the smallest units. If the payment was successful, you get its `unit` in the callback and can save it or watch further events on this unit.
 
-There are many other functions for sending payments, for example sending multiple payments in multiple assets at the same time, see `exports` of [https://github.com/byteball/headless-byteball/blob/master/start.js](https://github.com/byteball/headless-byteball/blob/master/start.js).
+There are many other functions for sending payments, for example sending multiple payments in multiple assets at the same time, see `exports` of [https://github.com/byteball/headless-obyte/blob/master/start.js](https://github.com/byteball/headless-byteball/blob/master/start.js).
 
 ## Sending data to DAG database
 
 To send data to DAG database, code below is a minimal that you can use. In case when you want to send data or text from specific address, you will need to look into links to other code examples below.
 
 ```javascript
-var headlessWallet = require('headless-byteball');
-var eventBus = require('byteballcore/event_bus.js');
-var objectHash = require('byteballcore/object_hash.js');
+var headlessWallet = require('headless-obyte');
+var eventBus = require('ocore/event_bus.js');
+var objectHash = require('ocore/object_hash.js');
 
 eventBus.on('headless_wallet_ready', () => {
 	var json_data = {
@@ -346,7 +346,7 @@ var arrDefinition = ['or', [
 Create another object that describes the positions of your and user addresses in the above definition:
 
 ```javascript
-var device = require('byteballcore/device.js');
+var device = require('ocore/device.js');
 var assocSignersByPath = {
 	'r.0.0': {
 		address: user_address,
@@ -366,7 +366,7 @@ The keys of this object are `r` \(from "root"\) followed by indexes into arrays 
 Then you create the smart contract address:
 
 ```javascript
-var walletDefinedByAddresses = require('byteballcore/wallet_defined_by_addresses.js');
+var walletDefinedByAddresses = require('ocore/wallet_defined_by_addresses.js');
 walletDefinedByAddresses.createNewSharedAddress(arrDefinition, assocSignersByPath, {
 	ifError: function(err){
 		// handle error

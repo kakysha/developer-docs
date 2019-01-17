@@ -7,8 +7,8 @@ description: 'This is a message type, which doesn''t require response back.'
 Example:
 
 ```javascript
-const network = require('byteballcore/network.js');
-const eventBus = require('byteballcore/event_bus.js');
+const network = require('ocore/network.js');
+const eventBus = require('ocore/event_bus.js');
 const ws = network.getInboundDeviceWebSocket(device_address);
 
 // function parameters: websocket, subject, body
@@ -272,7 +272,7 @@ Following is a list of `justsaying` type JSON messages that are sent over the ne
 
 ### Custom JustSaying
 
-You can add your own communication protocol on top of the Byteball one. See event [there](../list-of-events.md#event-for-custom-justsaying).
+You can add your own communication protocol on top of the Obyte one. See event [there](../list-of-events.md#event-for-custom-justsaying).
 
 ```javascript
 {
