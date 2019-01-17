@@ -18,7 +18,7 @@ We can [request payments with chat bot messages](writing-chatbots-for-byteball/#
 
 `WALLET_ADDRESS` should be replaced with the wallet address where the funds should be sent, `amount` parameter should have `bigInt` type number in bytes \(not KByte, notMByte, not GByte\) and `asset` parameter is optional, by default it is `base` for bytes, but it can be issued [asset unit ID](issuing-assets-on-byteball.md#asset-id) too.
 
-One website that heavily relies on this feature is [Currency converter for Byteball](https://tarmo888.github.io/bb-convert/) \([source code](https://github.com/tarmo888/bb-convert)\).
+One website that heavily relies on this feature is [Currency converter for Obyte](https://tarmo888.github.io/bb-convert/) \([source code](https://github.com/tarmo888/bb-convert)\).
 
 ## Receiving textcoins via link
 
@@ -83,5 +83,5 @@ $(document).ready(function() {
 </script>
 ```
 
-A website that creates QR codes this way is [Currency converter for Byteball](https://tarmo888.github.io/bb-convert/) \([source code](https://github.com/tarmo888/bb-convert)\) and Steem Attestation bot \([source code](https://github.com/byteball/steem-attestation/blob/master/public/qr/index.html)\) generates referral links this way. Alternatively, there is also code example [how to generate QR code like that on server side](tutorials-for-newcomers/log-in-on-website-with-byteball.md).
+A website that creates QR codes this way is [Currency converter for Obyte](https://tarmo888.github.io/bb-convert/) \([source code](https://github.com/tarmo888/bb-convert)\) and Steem Attestation bot \([source code](https://github.com/byteball/steem-attestation/blob/master/public/qr/index.html)\) generates referral links this way. Alternatively, there is also code example [how to generate QR code like that on server side](tutorials-for-newcomers/log-in-on-website-with-byteball.md).
 
