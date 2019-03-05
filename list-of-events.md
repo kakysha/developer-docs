@@ -241,8 +241,9 @@ eventBus.on("message_for_light", (ws, subject, body) => {
 This event is emitted when wallet updated rates that they got from Hub.
 
 ```javascript
+const network = require('ocore/network.js');
 eventBus.on("rates_updated", () => {
-
+    console.log(JSON.stringify(network.exchangeRates, null, 2));
 });
 ```
 
