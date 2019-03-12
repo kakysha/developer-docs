@@ -59,6 +59,10 @@ Publish this pairing code on your website as a link with `byteball:` scheme, use
 
 You also need this pairing code to add your bot to the [Bot Store](https://medium.com/byteball/byteball-bot-store-has-launched-c546e9e38ab5).
 
+### Testnet
+
+Run `cp .env.testnet .env` to connect to TESTNET hub. Backup and delete the database if you already ran it on MAINNET. Wallet app for [TESTNET can be downloaded from Obyte.org](https://obyte.org/testnet.html) website.
+
 ### Email notifications
 
 Most bots out there expect user's machine to have UNIX sendmail and by default `sendmail` function in `mail` module will try to use that, but it is possible to configure your node to use SMTP relay. This way you could use Gmail or Sendmail SMTP server or even something like Mailtrap.io \(excellent for testing purposes if you don't want the actual email recipient to receive your test messages\). This is how the configuration would look:
