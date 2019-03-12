@@ -61,7 +61,7 @@ You also need this pairing code to add your bot to the [Bot Store](https://mediu
 
 ### Light node
 
-Some bots don't need to sync full node. If your bot is designed to work as light node or you just wish to get it working first, change `bLight` variable to `true` in configuration file.
+Some bots don't need to sync full node. If your bot is designed to work as light node or you just wish to get it working first, change `bLight` variable to `true` in configuration file. Changing this value will make it use different SQLite database next time you run it.
 
 {% code-tabs %}
 {% code-tabs-item title="conf.js" %}
