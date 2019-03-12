@@ -59,6 +59,18 @@ Publish this pairing code on your website as a link with `byteball:` scheme, use
 
 You also need this pairing code to add your bot to the [Bot Store](https://medium.com/byteball/byteball-bot-store-has-launched-c546e9e38ab5).
 
+### Light node
+
+Some bots don't need to sync full node. If your bot is designed to work as light node or you just wish to get it working first, change `bLight` variable to `true` in configuration file.
+
+{% code-tabs %}
+{% code-tabs-item title="conf.js" %}
+```javascript
+exports.bLight = true;
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 ### Testnet
 
 Run `cp .env.testnet .env` to connect to TESTNET hub. Backup and delete the database if you already ran it on MAINNET. Wallet app for [TESTNET can be downloaded from Obyte.org](https://obyte.org/testnet.html) website.
