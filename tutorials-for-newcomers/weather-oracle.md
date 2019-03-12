@@ -6,7 +6,7 @@ Hi, everybody. Today we will create our own oracle. To do this, we need a bot-ex
 git clone https://github.com/byteball/bot-example
 cd bot-example
 npm install
-./testnetify.sh
+cp .env.testnet .env
 ```
 
 Our oracle will accept a message like City: timestamp, where timestamp is the time to publish.  

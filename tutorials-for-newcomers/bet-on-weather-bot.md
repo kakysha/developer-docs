@@ -8,7 +8,7 @@ We will need [bot-example](https://github.com/byteball/bot-example). Let’s ins
 git clone https://github.com/byteball/bot-example
 cd bot-example
 npm install
-./testnetify.sh
+cp .env.testnet .env
 ```
 
 First, let’s create variables.

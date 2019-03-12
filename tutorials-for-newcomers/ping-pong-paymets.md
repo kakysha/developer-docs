@@ -6,12 +6,12 @@ Hello. I’m starting a series of tutorials about creating projects on Obyte. To
 git clone https://github.com/byteball/bot-example
 cd bot-example 
 npm install
-./testnetify.sh
+cp .env.testnet .env
 node start.js
 ```
 
   
-We run testnetify.sh for changing it configuration to testnet network. When you starting bot at first, he will ask you passphrase\(don’t forget it, since you need to enter each time you start\). When starting bot in console you will see “my pairing code”. It looks like this:  Copy this pairing code.
+We run `cp .env.testnet .env` for changing it configuration to testnet network. When you starting bot at first, he will ask you passphrase\(don’t forget it, since you need to enter each time you start\). When starting bot in console you will see “my pairing code”. It looks like this:  Copy this pairing code.
 
 ![image3.png](https://cdn.steemitimages.com/DQmPAGJos8Rr46zEUXokatvKRQH5CQZDeyxH7b41ArW1mtr/image3.png)
 
