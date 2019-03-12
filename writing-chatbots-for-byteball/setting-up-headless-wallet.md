@@ -111,7 +111,7 @@ This is one of the two most important settings. This is an array of device addre
 
 The other important setting is the payout\_address which is the wallet address that the bot is allowed to send funds to. When a device with the correct device address requests the bot to send a payment of X bytes, the bot automatically pays it to the wallet you specify here. If you are installing the bot to allow users to send funds to it or to be part of smart contracts that it will potentially withdraw from, you might want to periodically send funds away from the headless wallet and into another wallet you control.
 
-### blight config
+### bLight config
 
 This setting determines whether your headless wallet will run as a full node or a light node. If your bot needs access to all transactions on the DAG, you will need to run a full node. Therefore, in most cases, this should be set to `false`.
 
