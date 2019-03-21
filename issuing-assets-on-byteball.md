@@ -136,7 +136,7 @@ The above conditions stipulate that the newly defined asset can be issued if the
 
 ## Asset ID
 
-After an asset is defined, the hash of the unit where it was defined becomes the unique ID of the asset. The asset is referenced by this ID in future payments and definitions \(smart contracts\). There are no user-assignable names of assets in the protocol, but there are independent registries that link asset IDs to user-friendly names for a fee. One such registry is [https://byteball.market/](https://byteball.market/).
+After an asset is defined, the hash of the unit where it was defined becomes the unique ID of the asset. The asset is referenced by this ID in future payments and definitions \(smart contracts\). There are no user-assignable names of assets in the protocol, but there are independent registries that link asset IDs to user-friendly names for a fee. One such registry is [Obyte Asset Registry](https://asset.obyte.app/).
 
 ## Issuance of a new asset
 
