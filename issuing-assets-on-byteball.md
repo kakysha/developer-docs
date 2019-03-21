@@ -109,7 +109,7 @@ var asset = {
 };
 ```
 
-The definition can also include two optional properties `issue_condition` and `transfer_condition`which specify the restrictions when the asset can be issued and transferred. They evaluate to a boolean and are coded in the same [smart contract language](https://github.com/byteball/byteballcore/wiki/Smart-contracts) as address definitions.
+The definition can also include two optional properties `issue_condition` and `transfer_condition`which specify the restrictions when the asset can be issued and transferred. They evaluate to a boolean and are coded in the same [smart contract language](smart-contracts.md) as address definitions.
 
 ```javascript
 var asset = {
