@@ -51,7 +51,8 @@ Since Obyte runs on an SQLite database by default, which is [located in user dat
 To make sure all binaries build properly, we need the build-essentials as well:  
 `apt-get install -y build-essential`
 
-Now - log off the server and log on with the user we initially created \(‘obyte’ in this example\)
+Now log on with the user we initially created \(‘obyte’ in this example\)  
+`su -l obyte`
 
 The headless wallet is based on nodejs, and one of the easiest way to control node versions is by the script called “nvm”. Just fire these three commands, and you’re all set:  
 ``nvm_version=`curl --silent https://api.github.com/repos/creationix/nvm/releases/latest | /usr/bin/awk '/tag_name/ { print $2 }' | /bin/sed 's/[",]//g'```
@@ -61,8 +62,10 @@ The headless wallet is based on nodejs, and one of the easiest way to control no
 
 \(thanks to [http://blog.mobnia.com/installing-node-with-nvm-on-a-debian-server/](http://blog.mobnia.com/installing-node-with-nvm-on-a-debian-server/) for the above two commands\)
 
-Then close and relaunch SSH terminal and install version 10 of nodejs simply by using the nvm script:  
-`nvm install 10`
+Then exit user, log in again and install version 10 of nodejs:  
+`exit  
+su -l obyte  
+nvm install 10`
 
 ## Installing the Headless Wallet
 
@@ -86,8 +89,8 @@ Then install it
 
 In your .config folder, you should create a file called conf.json and edit it. It will contain values that is used by the headless wallet. They override the values that you can find in the file called conf.js located in your headless-obyte folder.
 
-`cd ~/.config/headless-obyte/  
-nano conf.json`
+`mkdir -p ~/.config/headless-obyte  
+nano ~/.config/headless-obyte/conf.json`
 
 I will briefly explain each of the entries, you should put in the file \(if you’re not familiar with the structure of a json object, you could check out sites such as jsoneditoronline.org\)
 
