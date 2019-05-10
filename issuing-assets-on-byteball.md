@@ -13,7 +13,7 @@ To start a user-defined asset on Obyte, you need to complete two steps
 
 ## Defining a new asset
 
-See a sample of asset-defining transaction at [https://github.com/byteball/headless-obyte/blob/master/play/create\_asset.js](https://github.com/byteball/headless-byteball/blob/master/play/create_asset.js).
+See a sample of asset-defining transaction at [https://github.com/byteball/headless-obyte/blob/master/tools/create\_asset.js](https://github.com/byteball/headless-obyte/blob/master/tools/create_asset.js).
 
 To define a new asset you need a headless wallet. In your dependencies:
 

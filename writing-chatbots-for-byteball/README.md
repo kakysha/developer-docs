@@ -324,7 +324,7 @@ eventBus.on('headless_wallet_ready', () => {
 });
 ```
 
-Besides `data`, there are [other types of message apps](https://github.com/byteball/byteballcore/blob/master/writer.js) too, like `data_feed`, `attestation`, `profile` , `poll` and `text`. Code examples for these are available in ["/play" folder of headless-wallet](https://github.com/byteball/headless-byteball/tree/master/play).
+Besides `data`, there are [other types of message apps](https://github.com/byteball/byteballcore/blob/master/writer.js) too, like `data_feed`, `attestation`, `profile` , `poll` and `text`. Code examples for these are available in ["/tools" folder of headless wallet](https://github.com/byteball/headless-obyte/tree/master/tools).
 
 If you wish to send data to DAG database periodically then full code examples for [price oracle](https://github.com/byteball/byteball-data-feed), [bitcoin oracle](https://github.com/byteball/btc-oracle) or [sports oracle](https://github.com/byteball/sports-oracle) can be found on Github.
 

@@ -6,10 +6,10 @@ description: >-
 
 # Running RPC service
 
-By default, RPC service is not enabled for security reasons. To enable it, you should start your headless node differently: instead of `node start.js`, cd to `play` folder and start RPC-enabled node by running [rpc\_service.js](https://github.com/byteball/headless-byteball/blob/master/play/rpc_service.js):
+By default, RPC service is not enabled for security reasons. To enable it, you should start your headless node differently: instead of `node start.js`, cd to `tools` folder and start RPC-enabled node by running [rpc\_service.js](https://github.com/byteball/headless-obyte/blob/master/tools/rpc_service.js):
 
 ```javascript
-cd play
+cd tools
 node rpc_service.js
 ```
 
