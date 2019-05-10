@@ -147,7 +147,7 @@ You cannot use `wallet.sendMultiPayment()`, `headlessWallet.issueChangeAddressAn
 * `composeAndSaveDivisibleAssetPaymentJoint` from `ocore/divisible_asset.js`
 * `composeAndSaveIndivisibleAssetPaymentJoint` from `ocore/indivisible_asset.js`
 
-See [create\_divisible\_asset\_payment.js](https://github.com/byteball/headless-byteball/blob/master/play/create_divisible_asset_payment.js) and [create\_indivisible\_asset\_payment.js](https://github.com/byteball/headless-byteball/blob/master/play/create_indivisible_asset_payment.js) for examples.
+See [create\_divisible\_asset\_payment.js](https://github.com/byteball/headless-obyte/blob/master/tools/create_divisible_asset_payment.js) and [create\_indivisible\_asset\_payment.js](https://github.com/byteball/headless-obyte/blob/master/tools/create_indivisible_asset_payment.js) for examples.
 
 See an example of how an asset can be both defined and issued in a single script [https://github.com/byteball/ico-bot/blob/master/scripts/issue\_tokens.js](https://github.com/byteball/ico-bot/blob/master/scripts/issue_tokens.js)
 
