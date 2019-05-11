@@ -32,6 +32,8 @@ var headlessWallet = require('headless-obyte');
 var network = require('ocore/network.js');
 var composer = require('ocore/composer.js');
 
+var my_address = ''; // set definer address.
+var asset = {}; // defined asset here.
 composer.composeAssetDefinitionJoint(my_address, asset, headlessWallet.signer,
     {
         ifError: console.error,
