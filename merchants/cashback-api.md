@@ -1,7 +1,7 @@
 ---
 description: >-
-  This API is for merchants and payment processors who participate in the
-  Byteball cashback program.
+  This API is for merchants and payment processors who participate in the Obyte
+  cashback program.
 ---
 
 # Cashback API
