@@ -4,5 +4,5 @@ description: >-
   merchants who would like to accept Bytes for goods or services.
 ---
 
-# Merchants
+# Obyte for merchants
 

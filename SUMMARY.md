@@ -18,7 +18,7 @@
 * [Websocket API](websocket-api/README.md)
   * [Request](websocket-api/request.md)
   * [JustSaying](websocket-api/justsaying.md)
-* [Merchants](merchants/README.md)
+* [Obyte for merchants](merchants/README.md)
   * [Payments gateway](merchants/payments-gateway.md)
   * [Cashback API](merchants/cashback-api.md)
 * [JSON RPC](json-rpc/README.md)
