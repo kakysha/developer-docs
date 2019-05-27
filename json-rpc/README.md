@@ -4,5 +4,5 @@ description: >-
   multiple calls to be sent to the server which may be answered out of order.
 ---
 
-# JSON RPC
+# Obyte for exchanges
 
