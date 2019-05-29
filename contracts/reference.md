@@ -1,5 +1,4 @@
-
-# Smart Contracts Language Reference
+# Language reference
 
 ## Authentication
 
@@ -345,3 +344,4 @@ This clause evaluates to `true` if the unit has a definition change of the speci
 ```
 
 This clause evaluates to `true` if `last_ball_mci` of the current unit is greater than \(other possible comparisons: `>=`, `<`, `<=`, `=`\) than the specified value. It can be useful to make the address spendable only after some point in the future and not rely on any timestamp oracles.
+

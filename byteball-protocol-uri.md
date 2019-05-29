@@ -14,7 +14,7 @@ Following hyperlinks will open the wallet app on Send screen.
 
 ### Requesting to send funds
 
-We can [request payments with chat bot messages](writing-chatbots-for-byteball/#requesting-payments) and we can use the same commands as links on the website. This is how it will look as a hyperlink:
+We can [request payments with chat bot messages](payments/#requesting-payments) and we can use the same commands as links on the website. This is how it will look as a hyperlink:
 
 ```markup
 <a href="byteball:WALLET_ADDRESS?amount=123000&amp;asset=base">
@@ -86,7 +86,7 @@ Textcoins are funds that can be sent via text messages. These text messages cont
 </a>
 ```
 
-So, additionally to [sending textcoins with a bot](sending-textcoins-with-bot.md), you can also make clickable textcoins on your website \(link either to textcoin claiming page or directly to `byteball:` protocol\). Just make sure each user on your webiste has access to textcoins specifically generated for them. Otherwise, if all users see the same textcoins then it can become a rush to who claims the textcoins first.
+So, additionally to [sending textcoins with a bot](payments/textcoins.md), you can also make clickable textcoins on your website \(link either to textcoin claiming page or directly to `byteball:` protocol\). Just make sure each user on your webiste has access to textcoins specifically generated for them. Otherwise, if all users see the same textcoins then it can become a rush to who claims the textcoins first.
 
 ## Interacting with a bot
 
@@ -102,15 +102,15 @@ Luckily, adding chat bots to your wallet app is much easier on Obyte than it is 
 </a>
 ```
 
-One example, where all the official Hub bots are displayed on a website can be seen on [Bots section byteball.co](https://byteball.co/bots).
+One example, where all the official Hub bots are displayed on a website can be seen on [Bots section obyte.io](https://obyte.io/bots).
 
 Pairing codes in hyperlinks are not limited to only chat bots, you could create a pairing link to any device, all you need to do is find you pairing invitation code \(Chat &gt; Add new device &gt; Invite other device\) and add the code after `byteball:` protocol inside the hyperlink.
 
 ### Sending commands to chat bots
 
-Once you have paired with a chat bot already, you might wonder whether it is possible to get users from your website to some specific state in chat bot \(for example, by [sending a predefined command](writing-chatbots-for-byteball/#predefined-chat-commands)\) with a click on any hyperlink. There are 2 options how to do that, first option would be to fill the `pairing_secrets` database table with all the possible commands, but if there could be indefinite number of valid commands then easiest would be to [accept any pairing secret](writing-chatbots-for-byteball/#accept-any-pairing-secret) and use them as custom commands.
+Once you have paired with a chat bot already, you might wonder whether it is possible to get users from your website to some specific state in chat bot \(for example, by [sending a predefined command](quick-start.md#predefined-chat-commands)\) with a click on any hyperlink. There are 2 options how to do that, first option would be to fill the `pairing_secrets` database table with all the possible commands, but if there could be indefinite number of valid commands then easiest would be to [accept any pairing secret](quick-start.md#accept-any-pairing-secret) and use them as custom commands.
 
-Websites that use this feature are [BB Odds](https://bb-odds.herokuapp.com/) and [Polls section on byteball.co](https://byteball.co/polls). How it can be done can be seen from Poll bot \([source code](https://github.com/byteball/poll-bot/blob/master/poll-bot.js)\). For example, opening a poll app with results of specific poll can be done with hyperlink like this:
+Websites that use this feature are [BB Odds](https://bb-odds.herokuapp.com/) and [Polls section on obyte.io](https://obyte.io/polls). How it can be done can be seen from Poll bot \([source code](https://github.com/byteball/poll-bot/blob/master/poll-bot.js)\). For example, opening a poll app with results of specific poll can be done with hyperlink like this:
 
 ```markup
 <a href="byteball:AhMVGrYMCoeOHUaR9v/CZzTC34kScUeA4OBkRCxnWQM+@byteball.org/bb#stats-HAXKXC1EBn8GtiAiW0xtYLAJiyV4V1jTt1rc2TDJ7p4=">

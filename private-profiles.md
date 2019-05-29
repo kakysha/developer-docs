@@ -4,7 +4,7 @@ description: >-
   your chatbot.
 ---
 
-# Using attested private profiles
+# Private profiles / KYC
 
 Users can have some of their data verified by a trusted third party \(attestor\). The attestor posts an attestation record to the Obyte DAG, this record serves as a proof for relying parties that a user was attested. The attested data itself can be either posted publicly by the attestor, or only a hash of this data is posted while the plaintext data is saved in the wallet of the attested user. In the latter case, the user can disclose the attested data to selected peers, for example to your bot.
 

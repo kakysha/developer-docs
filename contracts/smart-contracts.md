@@ -30,14 +30,14 @@ Create a JSON object that defines the contract:
 
 ```javascript
 var arrDefinition = ['or', [
-	['and', [
-		['address', USERADDRESS],
-		conditions when user can unlock the contract
-	]],
-	['and', [
-		['address', MYADDRESS],
-		conditions when I can unlock the contract
-	]]
+    ['and', [
+        ['address', USERADDRESS],
+        conditions when user can unlock the contract
+    ]],
+    ['and', [
+        ['address', MYADDRESS],
+        conditions when I can unlock the contract
+    ]]
 ]];
 ```
 
@@ -46,16 +46,16 @@ Create another object that describes the positions of your and user addresses in
 ```javascript
 var device = require('ocore/device.js');
 var assocSignersByPath = {
-	'r.0.0': {
-		address: user_address,
-		member_signing_path: 'r', // unused, should be always 'r'
-		device_address: user_device_address
-	},
-	'r.1.0': {
-		address: my_address,
-		member_signing_path: 'r', // unused, should be always 'r'
-		device_address: device.getMyDeviceAddress()
-	}
+    'r.0.0': {
+        address: user_address,
+        member_signing_path: 'r', // unused, should be always 'r'
+        device_address: user_device_address
+    },
+    'r.1.0': {
+        address: my_address,
+        member_signing_path: 'r', // unused, should be always 'r'
+        device_address: device.getMyDeviceAddress()
+    }
 };
 ```
 
@@ -66,18 +66,18 @@ Then you create the smart contract address:
 ```javascript
 var walletDefinedByAddresses = require('ocore/wallet_defined_by_addresses.js');
 walletDefinedByAddresses.createNewSharedAddress(arrDefinition, assocSignersByPath, {
-	ifError: function(err){
-		// handle error
-	},
-	ifOk: function(shared_address){
-		// new shared address created
-	}
+    ifError: function(err){
+        // handle error
+    },
+    ifOk: function(shared_address){
+        // new shared address created
+    }
 });
 ```
 
 If the address was successfully created, it was also already automatically sent to the user, so the user's wallet will know it.
 
-More definition examples can be seen on [smart contracts definitions page](../smart-contracts.md).
+More definition examples can be seen on [smart contracts definitions page](https://github.com/tarmo888/developer-docs/tree/2373a467f30a8dcc24094fd31335ba946b5275e5/smart-contracts.md).
 
 ### Sending a request for contract payment
 
@@ -87,8 +87,8 @@ To request the user to pay his share to the contract, create the below javascrip
 var arrPayments = [{address: shared_address, amount: peer_amount, asset: peerAsset}];
 var assocDefinitions = {};
 assocDefinitions[shared_address] = {
-	definition: arrDefinition,
-	signers: assocSignersByPath
+    definition: arrDefinition,
+    signers: assocSignersByPath
 };
 var objPaymentRequest = {payments: arrPayments, definitions: assocDefinitions};
 var paymentJson = JSON.stringify(objPaymentRequest);
@@ -99,3 +99,4 @@ device.sendMessageToDevice(correspondent.device_address, 'text', paymentRequestT
 ```
 
 The user's wallet will parse this message, display the definition of the contract in a user readable form, and offer the user to pay the requested amount. Your payment-waiting code will be called when the payment is seen on the DAG.
+

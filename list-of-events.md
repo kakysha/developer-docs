@@ -4,7 +4,7 @@ description: >-
   running.
 ---
 
-# List of events
+# Events list
 
 ```javascript
 const eventBus = require('ocore/event_bus.js');
@@ -329,7 +329,7 @@ eventBus.on('saved_unit-' + unit, (objJoint) => {
 
 ### Attempt to pair us with another correspondent
 
-This event is emitted when there is a pairing attempt, this enables bot to decide with the code if the pairing code is valid or not. If you would like to accept any pairing code then [there is easier solution](writing-chatbots-for-byteball/#accept-any-pairing-secret).
+This event is emitted when there is a pairing attempt, this enables bot to decide with the code if the pairing code is valid or not. If you would like to accept any pairing code then [there is easier solution](quick-start.md#accept-any-pairing-secret).
 
 ```javascript
 eventBus.on("pairing_attempt", (from_address, pairing_secret) => {

@@ -1,9 +1,11 @@
 ---
 description: >-
-  One of the core features that almost every existing Obyte chatbot has is sending and receiving payments. This enables bot developers immediately add payment to the service they could be providing without the need for any other third-party payment processor.
+  One of the core features that almost every existing Obyte chatbot has is
+  sending and receiving payments. This enables bot developers immediately add
+  payment to the service they could be providing with
 ---
 
-# Payments
+# Payments and transactions
 
 ## Requesting payments
 
@@ -22,9 +24,9 @@ You will likely want to generate a unique payment address per user, per transact
 ```javascript
 var walletDefinedByKeys = require('ocore/wallet_defined_by_keys.js');
 walletDefinedByKeys.issueNextAddress(wallet, 0, function(objAddress){
-	var wallet_address = objAddress.address;
-	// work with this address, then send it over to the user
-	device.sendMessageToDevice(user_device_address, 'text', "Please pay to "+wallet_address);
+    var wallet_address = objAddress.address;
+    // work with this address, then send it over to the user
+    device.sendMessageToDevice(user_device_address, 'text', "Please pay to "+wallet_address);
 });
 ```
 
@@ -40,7 +42,7 @@ you can get notified when any of your addresses receives a payment
 
 ```javascript
 eventBus.on('new_my_transactions', function(arrUnits){
-	// react to receipt of payment(s)
+    // react to receipt of payment(s)
 });
 ```
 
@@ -52,7 +54,7 @@ To get notified when any of your transactions become stable \(confirmed\), subsc
 
 ```javascript
 eventBus.on('my_transactions_became_stable', function(arrUnits){
-	// react to payment(s) becoming stable
+    // react to payment(s) becoming stable
 });
 ```
 
@@ -62,8 +64,8 @@ The above events work in both full and light nodes. If your node is full, you ca
 
 ```javascript
 eventBus.on('mci_became_stable', function(mci){
-	// check if there are any units you are interested in 
-	// that had this MCI and react to their becoming stable
+    // check if there are any units you are interested in 
+    // that had this MCI and react to their becoming stable
 });
 ```
 
@@ -79,14 +81,15 @@ and use this function:
 
 ```javascript
 headlessWallet.issueChangeAddressAndSendPayment(asset, amount, user_wallet_address, user_device_address, function(err, unit){
-	if (err){
-		// something went wrong, maybe put this payment on a retry queue
-		return;
-	}
-	// handle successful payment
+    if (err){
+        // something went wrong, maybe put this payment on a retry queue
+        return;
+    }
+    // handle successful payment
 });
 ```
 
 `asset` is the asset you are paying in \(`null` for bytes\), `amount` is payment amount in the smallest units. If the payment was successful, you get its `unit` in the callback and can save it or watch further events on this unit.
 
 There are many other functions for sending payments, for example sending multiple payments in multiple assets at the same time, see `exports` of [https://github.com/byteball/headless-obyte/blob/master/start.js](https://github.com/byteball/headless-byteball/blob/master/start.js).
+

@@ -18,15 +18,15 @@ Most VPS providers allow you to choose an operating system, and since this guide
 
 Having created the server, I need to connect to the server. I use a super lightweight SSH terminal called “putty” from my Windows laptop.\(available on [https://www.putty.org](https://www.putty.org)\)
 
-![](../.gitbook/assets/image%20%283%29.png)
+![](.gitbook/assets/image%20%283%29.png)
 
 First time you log on, you will see a notice that you have not connected to this host before. Click “Yes” to save the key.
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](.gitbook/assets/image%20%284%29.png)
 
 You are now logged on to your server:
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](.gitbook/assets/image%20%285%29.png)
 
 Running the headless wallet as root is not recommended, so the first thing I do, is create the user we will run the hub as. I chose the username “obyte”.
 
@@ -45,7 +45,7 @@ To be able to extract the Headless Wallet code from GitHub, we need the “git�
 I also need to be able to fetch stuff from the web, so I install curl to be able to do that:  
 `apt-get install curl software-properties-common`
 
-Since Obyte runs on an SQLite database by default, which is [located in user data folder](https://github.com/byteball/byteballcore#configuring), you might want to be able to explore the data stored yourself, thereby making it easier to create the logic for the bot if you need to access data in the databases. If you wish to [setup Obyte to use MySQL database instead](./#sql-database) then that can be changed with a configuration file.  
+Since Obyte runs on an SQLite database by default, which is [located in user data folder](https://github.com/byteball/byteballcore#configuring), you might want to be able to explore the data stored yourself, thereby making it easier to create the logic for the bot if you need to access data in the databases. If you wish to [setup Obyte to use MySQL database instead]() then that can be changed with a configuration file.  
 `apt-get install sqlite3`
 
 To make sure all binaries build properly, we need the build-essentials as well:  
@@ -71,7 +71,7 @@ nvm install 10`
 
 So far so good - we’re now almost ready to start actually installing the headless wallet. But first. We need to find the repository that we want to clone. Go to [https://github.com/byteball/headless-obyte](https://github.com/byteball/headless-byteball) and click the “Clone or download” button:
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](.gitbook/assets/image%20%286%29.png)
 
 Copy the URL from there and clone the repository
 
@@ -108,7 +108,7 @@ This is the part that goes after the \# in your pairing invitation that you will
 
 This is one of the two most important settings. This is an array of device addresses \(not wallet addresses\) that are allowed to control your headless wallet and request payments from it. You will most likely want to control the headless wallet from a GUI wallet on a phone or desktop. You find the device address by clicking the burger-menu and clicking “Settings” and then scrolling down to the section saying “Device Address” on the wallet\(s\) you want to be able to connect to the headless wallet from.
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](.gitbook/assets/image%20%287%29.png)
 
 ### payout\_address config
 

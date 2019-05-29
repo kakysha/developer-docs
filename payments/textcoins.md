@@ -1,6 +1,7 @@
 ---
 description: >-
-  Textcoins are a handy way of transfering money and asset to other people, in a text form.
+  Textcoins are a handy way of transfering money and asset to other people, in a
+  text form.
 ---
 
 # Textcoins
@@ -22,14 +23,14 @@ Sample code:
 var headlessWallet = require('headless-byteball');
 
 let opts = {
-	asset: null, 
-	amount: 1000, // bytes
-	to_address: "textcoin:pandanation@wwfus.org",
-	email_subject: "Payment in textcoin"
+    asset: null, 
+    amount: 1000, // bytes
+    to_address: "textcoin:pandanation@wwfus.org",
+    email_subject: "Payment in textcoin"
 };
 
 headlessWallet.issueChangeAddressAndSendMultiPayment(opts, (err, unit, assocMnemonics) => {
-	....
+    ....
 });
 ```
 
@@ -45,7 +46,7 @@ The callback of `issueChangeAddressAndSendMultiPayment` and all similar function
 
 ```javascript
 {
-	"textcoin:pandanation@wwfus.org": "barely-album-remove-version-endorse-vocal-weasel-kitten-when-fit-elbow-crop"
+    "textcoin:pandanation@wwfus.org": "barely-album-remove-version-endorse-vocal-weasel-kitten-when-fit-elbow-crop"
 }
 ```
 
@@ -61,7 +62,7 @@ https://byteball.org/#textcoin?barely-album-remove-version-endorse-vocal-weasel-
 
 and send it in chat.
 
-If you are going to print a paper wallet from an ATM, you just print the mnemonic and optionally [encode textcoin words](byteball-protocol-uri.md#receiving-textcoins-via-link) in the QR code. You could create your own [QR code generator on website](byteball-protocol-uri.md#using-protocol-uri-in-qr-code) too with jQuery.
+If you are going to print a paper wallet from an ATM, you just print the mnemonic and optionally [encode textcoin words](https://github.com/tarmo888/developer-docs/tree/2373a467f30a8dcc24094fd31335ba946b5275e5/payments/byteball-protocol-uri.md#receiving-textcoins-via-link) in the QR code. You could create your own [QR code generator on website](https://github.com/tarmo888/developer-docs/tree/2373a467f30a8dcc24094fd31335ba946b5275e5/payments/byteball-protocol-uri.md#using-protocol-uri-in-qr-code) too with jQuery.
 
 More about textcoins in Byteball blog  
 [https://medium.com/byteball/sending-cryptocurrency-to-email-5c9bce22b8a9](https://medium.com/byteball/sending-cryptocurrency-to-email-5c9bce22b8a9).
@@ -69,3 +70,4 @@ More about textcoins in Byteball blog
 Example code in a Telegram bot that sends users textcoins for passing a quiz: [https://github.com/byteball/telegram-quiz/blob/master/src/wallet.js](https://github.com/byteball/telegram-quiz/blob/master/src/wallet.js)
 
 Example code that creates a list of textcoins for subsequent mass sending \(e.g. [via MailChimp](https://medium.com/byteball-help/using-mailchimp-to-mass-send-payments-as-textcoins-5c1db06342e3)\): [https://github.com/byteball/headless-obyte/blob/master/tools/create\_textcoins\_list.js](https://github.com/byteball/headless-obyte/blob/master/tools/create_textcoins_list.js)
+
