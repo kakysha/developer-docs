@@ -1,11 +1,13 @@
 ---
 description: >-
-  Textcoin is a payment sent though email or other text based media, such as
-  chat apps. Textcoins can also be printed on paper, scratch cards, or PIN
-  envelopes and passed on like paper wallets.
+  Textcoins are a handy way of transfering money and asset to other people, in a text form.
 ---
 
-# Sending textcoins with bot
+# Textcoins
+
+Textcoin is a payment sent though email or other text based media, such as chat apps. Textcoins can also be printed on paper, scratch cards, or PIN envelopes and passed on like paper wallets.
+
+## Sending textcoins with bot
 
 Sending textcoins from server-side \(headless\) wallets is easy: you use the same functions you normally use to send to Obyte addresses but instead of the recipient's Obyte address you write:
 
@@ -67,4 +69,3 @@ More about textcoins in Byteball blog
 Example code in a Telegram bot that sends users textcoins for passing a quiz: [https://github.com/byteball/telegram-quiz/blob/master/src/wallet.js](https://github.com/byteball/telegram-quiz/blob/master/src/wallet.js)
 
 Example code that creates a list of textcoins for subsequent mass sending \(e.g. [via MailChimp](https://medium.com/byteball-help/using-mailchimp-to-mass-send-payments-as-textcoins-5c1db06342e3)\): [https://github.com/byteball/headless-obyte/blob/master/tools/create\_textcoins\_list.js](https://github.com/byteball/headless-obyte/blob/master/tools/create_textcoins_list.js)
-

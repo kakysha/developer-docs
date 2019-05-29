@@ -1,16 +1,5 @@
----
-description: >-
-  Smart contracts on Obyte are expressions that evaluate to true or false, the
-  money stored on the contract can be spent only when it evaluates to true.
----
 
-# Smart contract definitions
-
-The smart contract language is declarative, meaning that it expresses **what** conditions must be met to allow movement of money, rather than **how** the decisions are made. This makes it easy to see that the implementation of the contract matches its intent, and hard to make mistakes \(which cannot be undone in distributed ledgers\). However, the language is not as powerful as Ethereum’s Solidity, it is not Turing-complete, it doesn’t allow to code any program, rather it is a domain specific language for money on the distributed ledger.
-
-Money on Obyte is stored on addresses. Address is just a hash \(plus checksum\) of an address definition, and the address definition is an expression in the Obyte smart contract language that evaluates to either `true` or `false`.
-
-Code examples how to use these definitions can be found on "[Writing chatbots on Obyte](writing-chatbots-for-byteball/#creating-contract-definition)" page.
+# Smart Contracts Language Reference
 
 ## Authentication
 
@@ -356,4 +345,3 @@ This clause evaluates to `true` if the unit has a definition change of the speci
 ```
 
 This clause evaluates to `true` if `last_ball_mci` of the current unit is greater than \(other possible comparisons: `>=`, `<`, `<=`, `=`\) than the specified value. It can be useful to make the address spendable only after some point in the future and not rely on any timestamp oracles.
-
