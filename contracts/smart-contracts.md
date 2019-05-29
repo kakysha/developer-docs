@@ -31,12 +31,12 @@ Create a JSON object that defines the contract:
 ```javascript
 var arrDefinition = ['or', [
     ['and', [
-        ['address', USERADDRESS],
-        conditions when user can unlock the contract
+        ['address', user_address],
+        // conditions when user can unlock the contract
     ]],
     ['and', [
-        ['address', MYADDRESS],
-        conditions when I can unlock the contract
+        ['address', my_address],
+        // conditions when I can unlock the contract
     ]]
 ]];
 ```
