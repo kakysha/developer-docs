@@ -7,9 +7,9 @@ description: >-
 
 # Quick Start
 
-Following examples are for the first way of integrating server wallet, using in-process Node.js module requirement (`require('ocore/headless-obyte')`), that is we will write Node.js apps. If you wish to run Obyte wallet as a standalone app wrapped in JSON-RPC (`node headless-obyte.js`), you'll have to find corresponding method calls and it's arguments in [JSON-RPC reference](https://developer.obyte.org/json-rpc/running-rpc-service), for every code sample down below, by yourself.
+Following examples are for the first way of integrating server wallet, using in-process Node.js module requirement (`require('ocore/headless-obyte')`), that is we will write Node.js apps. If you wish to run Obyte wallet as a standalone app wrapped in JSON-RPC (`node headless-obyte.js`), you'll have to find corresponding method calls and it's arguments in [JSON-RPC reference](json-rpc/running-rpc-service), for every code sample down below, by yourself.
 
-To begin developing any app which is based on headless-obyte, first thing to do is to set up your machine, install Node.js and tools. [Complete guide of preparing your blank Debian-based machine for Obyte development](https://developer.obyte.org/setting-up-headless-wallet). You can skip this step if you are familiar with Node.js development and already know how to do it in your way.
+To begin developing any app which is based on headless-obyte, first thing to do is to set up your machine, install Node.js and tools. [Complete guide of preparing your blank Debian-based machine for Obyte development](setting-up-headless-wallet). You can skip this step if you are familiar with Node.js development and already know how to do it in your way.
 
 Create a new node.js package for your chatbot: `npm init`. You will definitely need modules from `ocore` and if you are going to send payments, you will also need `headless-obyte`. Your `package.json` should list these dependencies:
 
@@ -221,4 +221,4 @@ That's it. You've completed your first chatbot on Obyte platform. You can check 
 * [Internal asset exchange](https://github.com/byteball/byteball-exchange): offering contracts
 * [GUI wallet](https://github.com/byteball/byteball): not a bot, but you'll find code for offering contracts
 
-Now you are ready to make something useful, go ahead to our Tutorials section and carefully read all of them to get better understanding of Obyte code API. [Tutorials for newcomers](https://developer.obyte.org/tutorials-for-newcomers).
+Now you are ready to make something useful, go ahead to our Tutorials section and carefully read all of them to get better understanding of Obyte code API. [Tutorials for newcomers](tutorials-for-newcomers).
