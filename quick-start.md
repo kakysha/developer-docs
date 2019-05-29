@@ -26,7 +26,7 @@ Create a new node.js package for your chatbot: `npm init`. You will definitely n
 
 Now run `npm install` to fetch dependencies.
 
-### Light node
+## Light node
 
 Some bots don't need to sync full node. If your bot is designed to work as light node or you just wish to get it working first, change `bLight` variable to `true` in configuration file \([conf.js in project folder or conf.json in user folder](https://github.com/byteball/byteballcore#configuring)\). Changing this value will make it use different SQLite database next time you run it.
 
@@ -34,15 +34,16 @@ Some bots don't need to sync full node. If your bot is designed to work as light
 {% code-tabs-item title="conf.js" %}
 ```javascript
 exports.bLight = true;
+exports.hub = process.env.testnet ? 'obyte.org/bb-test' : 'obyte.org/bb';
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-### Testnet
+## Testnet
 
 Run `cp .env.testnet .env` to connect to TESTNET hub. Backup and delete the database if you already ran it on MAINNET. Wallet app for [TESTNET can be downloaded from Obyte.org](https://obyte.org/testnet.html) website.
 
-## 1. Simple sending / receiving txs:
+## Sending / receiving txs:
 
 {% code-tabs %}
 {% code-tabs-item title="index.js" %}
@@ -104,7 +105,7 @@ eventBus.on('mci_became_stable', function(mci){
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-## 2. Simple chatbot
+## Chatbot functionality
 
 Every Obyte wallet can be paired with any other Obyte wallet, because every wallet has it's unique pairing code. No matter which way you run your headless wallet, it will print it's pairing code to console right after the launch. Depending on what kind of app you want to build, you will or will not need this pairing code. Simplest operations on Obyte platform require no chat bot (like sending/receiving txs, for example). If you are writing an exchange or something similar, this is for you. You only need to provide your users with the way to tell you their wallet addresses and tell them your wallet's address somehow. So, you do not need to share your wallet's pairing code to anyone, only it's address.
 For more handy interaction with your userbase, you mostly surely need to write chatbot, to set up direct interaction between your clients Obyte apps and your wallet (this process is called 'pairing'). Chatbot is, basically, the usual Obyte wallet which can also receive chat messages and react to them. Clients will then pair and chat with your chatbot inside their Obyte apps, your task is to handle incoming messages and act accordingly. Through chat users can provide your chatbot with their addresses, KYC profiles, or any other information stored in their wallets in couple of clicks.
