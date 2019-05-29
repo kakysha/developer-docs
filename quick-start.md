@@ -261,7 +261,7 @@ Obyte nodes will use `sqlite` database by default because it needs zero configur
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-### Next step
+## Next step
 
 That's it. You've completed your first chatbot on Obyte platform. You can check other chatbot examples provided by our team:
 
