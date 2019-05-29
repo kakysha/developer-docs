@@ -26,16 +26,21 @@ Create a new node.js package for your chatbot: `npm init`. You will definitely n
 
 Now run `npm install` to fetch dependencies.
 
-In your configuration file \([conf.js in project folder or conf.json in user folder](https://github.com/byteball/byteballcore#configuring)\) switch your app to light node and add hub URL:
+### Light node
+
+Some bots don't need to sync full node. If your bot is designed to work as light node or you just wish to get it working first, change `bLight` variable to `true` in configuration file \([conf.js in project folder or conf.json in user folder](https://github.com/byteball/byteballcore#configuring)\). Changing this value will make it use different SQLite database next time you run it.
 
 {% code-tabs %}
 {% code-tabs-item title="conf.js" %}
 ```javascript
 exports.bLight = true;
-exports.hub = "obyte.org/bb";
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+
+### Testnet
+
+Run `cp .env.testnet .env` to connect to TESTNET hub. Backup and delete the database if you already ran it on MAINNET. Wallet app for [TESTNET can be downloaded from Obyte.org](https://obyte.org/testnet.html) website.
 
 ## 1. Simple sending / receiving txs:
 
@@ -201,13 +206,60 @@ Sometimes you might want to suggest the command without actually sending it imme
 Example command: we suggest to [buy (number) apples](suggest-command:buy 5 apples)
 ```
 
+## Configuration
+
+### Email notifications
+
+Most bots out there expect user's machine to have UNIX sendmail and by default `sendmail` function in `mail` module will try to use that, but it is possible to configure your node to use SMTP relay. This way you could use Gmail or Sendmail SMTP server or even something like Mailtrap.io \(excellent for testing purposes if you don't want the actual email recipient to receive your test messages\). This is how the configuration would look:
+
+{% code-tabs %}
+{% code-tabs-item title="conf.json" %}
+```javascript
+{
+	"smtpTransport": "relay",
+	"smtpRelay": "smtp.mailtrap.io",
+	"smtpUser": "MAILTRAP_INBOX_USER",
+	"smtpPassword": "MAILTRAP_INBOX_PASSWORD",
+	"smtpSsl": false,
+	"smtpPort": 2525,
+	"admin_email": "admin@example.com",
+	"from_email": "bot@example.com"
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 ### Database location
 
 At some point you'll surely want to have a peek into the database, or even make a modification in it. Default sqlite .db file is located near the config file, you can find the correct paths for each platform here: [Configuring headless wallet](https://github.com/byteball/ocore#configuring).
 
-### Testnet
+### MySQL Database
 
-Testnet. Run `cp .env.testnet .env` to connect to TESTNET hub. Backup and delete the database if you already ran it on MAINNET. Wallet app for [TESTNET can be downloaded from Obyte.org](https://obyte.org/testnet.html) website.
+If you need to inspect the DAG \(most likely, you need\) and see the details of any transaction, require the `db` module
+
+```javascript
+var db = require('ocore/db.js');
+```
+
+and run any SQL queries on your copy of the Obyte database \(sqlite file is located in [same folder as configuration](https://github.com/byteball/byteballcore#configuring)\). You can also add your custom tables. Obviously, you don't want to modify any data outside your custom tables.
+
+Obyte nodes will use `sqlite` database by default because it needs zero configuration, but it is possible to use MySQL or MariaDB too with a configuration like this:
+
+{% code-tabs %}
+{% code-tabs-item title="conf.json" %}
+```javascript
+{
+	"storage": "mysql",
+	"database": {
+		"host"     : "localhost",
+		"user"     : "DATABASE_USER",
+		"password" : "DATABASE_PASSWORD",
+		"name"     : "DATABASE_NAME"
+	}
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ### Next step
 
