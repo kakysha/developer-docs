@@ -141,7 +141,16 @@ eventBus.on('paired', function(from_address, pairing_secret){
 {% endcode-tabs %}
 
 The behavior of your event handler can depend on `pairing_secret`, the second argument of the event handler. For example, you can have a one-time \(non-permanent\) pairing secret equal to session ID on your website; after the user clicks the pairing link and opens chat, you can link his chat session with his web session, see [Authenticating users on websites](../tutorials-for-newcomers/log-in-on-website-with-byteball.md).
-`Note:iIf you wish to accept any pairing secret then you can do that by changing the pairing secret row in  configuration file into this: exports.permanent_pairing_secret = '*';`
+
+Note: If you wish to accept any pairing secret then you can do that by changing the pairing secret row in configuration file into this:
+
+{% code-tabs %}
+{% code-tabs-item title="conf.js" %}
+```javascript
+exports.permanent_pairing_secret = '*';
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ### Receiving chat messages
 
