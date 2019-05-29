@@ -62,7 +62,7 @@ https://byteball.org/#textcoin?barely-album-remove-version-endorse-vocal-weasel-
 
 and send it in chat.
 
-If you are going to print a paper wallet from an ATM, you just print the mnemonic and optionally [encode textcoin words](https://github.com/tarmo888/developer-docs/tree/2373a467f30a8dcc24094fd31335ba946b5275e5/payments/byteball-protocol-uri.md#receiving-textcoins-via-link) in the QR code. You could create your own [QR code generator on website](https://github.com/tarmo888/developer-docs/tree/2373a467f30a8dcc24094fd31335ba946b5275e5/payments/byteball-protocol-uri.md#using-protocol-uri-in-qr-code) too with jQuery.
+If you are going to print a paper wallet from an ATM, you just print the mnemonic and optionally [encode textcoin words](../byteball-protocol-uri.md#receiving-textcoins-via-link) in the QR code. You could create your own [QR code generator on website](../byteball-protocol-uri.md#using-protocol-uri-in-qr-code) too with jQuery.
 
 More about textcoins in Byteball blog  
 [https://medium.com/byteball/sending-cryptocurrency-to-email-5c9bce22b8a9](https://medium.com/byteball/sending-cryptocurrency-to-email-5c9bce22b8a9).

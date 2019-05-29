@@ -77,11 +77,11 @@ walletDefinedByAddresses.createNewSharedAddress(arrDefinition, assocSignersByPat
 
 If the address was successfully created, it was also already automatically sent to the user, so the user's wallet will know it.
 
-More definition examples can be seen on [smart contracts definitions page](https://github.com/tarmo888/developer-docs/tree/2373a467f30a8dcc24094fd31335ba946b5275e5/smart-contracts.md).
+More definition examples can be seen on [smart contracts definitions page](reference.md).
 
 ### Sending a request for contract payment
 
-To request the user to pay his share to the contract, create the below javascript object `objPaymentRequest` which contains both the payment request and the definition of the contract, encode the object in base64, and send it over to the user:
+To request the user to pay his share to the contract, create the below Javascript object `objPaymentRequest` which contains both the payment request and the definition of the contract, encode the object in base64, and send it over to the user:
 
 ```javascript
 var arrPayments = [{address: shared_address, amount: peer_amount, asset: peerAsset}];

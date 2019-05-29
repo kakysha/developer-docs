@@ -13,7 +13,7 @@ cd tools
 node rpc_service.js
 ```
 
-The node works as usual, plus it listens on port 6332 of loopback interface \(configured in [conf.js](https://github.com/byteball/headless-byteball/blob/master/conf.js) or conf.json\) for JSON-RPC commands. The commands are `getnewaddress`, `getbalance`, `listtransactions`, `sendtoaddress`.
+The node works as usual, plus it listens on port 6332 of loop-back interface \(configured in [conf.js](https://github.com/byteball/headless-byteball/blob/master/conf.js) or conf.json\) for JSON-RPC commands. The commands are `getnewaddress`, `getbalance`, `listtransactions`, `sendtoaddress`.
 
 ## getinfo
 
