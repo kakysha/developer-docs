@@ -9,7 +9,7 @@ description: >-
 
 Following examples are for the first way of integrating server wallet, using in-process Node.js module requirement \(`require('ocore/headless-obyte')`\), that is we will write Node.js apps. If you wish to run Obyte wallet as a standalone app wrapped in JSON-RPC \(`node headless-obyte.js`\), you'll have to find corresponding method calls and it's arguments in [JSON-RPC reference](json-rpc/running-rpc-service.md), for every code sample down below, by yourself.
 
-To begin developing any app which is based on headless-obyte, first thing to do is to set up your machine, install Node.js and tools. [Complete guide of preparing your blank Debian-based machine for Obyte development](setting-up-headless-wallet.md). You can skip this step if you are familiar with Node.js development and already know how to do it in your way.
+To begin developing any app which is based on headless-obyte, first thing to do is to set up your machine, install Node.js and tools. [Complete guide of preparing your blank Debian-based machine for Obyte development](tutorials-for-newcomers/setting-up-headless-wallet). You can skip this step if you are familiar with Node.js development and already know how to do it in your way.
 
 Create a new node.js package for your chatbot: `npm init`. You will definitely need modules from `ocore` and if you are going to send payments, you will also need `headless-obyte`. Your `package.json` should list these dependencies:
 
@@ -26,7 +26,7 @@ Create a new node.js package for your chatbot: `npm init`. You will definitely n
 
 Now run `npm install` to fetch dependencies.
 
-In your configuration file \([conf.js in project folder or conf.json in user folder](https://github.com/byteball/byteballcore#configuring)\) switch your app to light node and add hub URL:
+Full configuration options are described in [Configuration](configuration) section. As for now, in your configuration file (conf.js in project folder or conf.json in user folder) switch your app to light node and add hub URL:
 
 {% code-tabs %}
 {% code-tabs-item title="conf.js" %}
