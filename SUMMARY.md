@@ -1,8 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
-* [Quick Start](quick-start.md)
-* [Setting up headless wallet](setting-up-headless-wallet.md)
+* [Quick Start](README.md)
 * [Tutorials for newcomers](tutorials-for-newcomers/README.md)
   * [Ping-pong paymets](tutorials-for-newcomers/ping-pong-paymets.md)
   * [Logging into website](tutorials-for-newcomers/log-in-on-website-with-byteball.md)
