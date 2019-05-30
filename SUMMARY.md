@@ -1,7 +1,9 @@
 # Table of contents
 
 * [Quick Start](README.md)
+* [Configuration](configuration.md)
 * [Tutorials for newcomers](tutorials-for-newcomers/README.md)
+  * [Setting up headless wallet](tutorials-for-newcomers/setting-up-headless-wallet.md)
   * [Ping-pong paymets](tutorials-for-newcomers/ping-pong-paymets.md)
   * [Logging into website](tutorials-for-newcomers/log-in-on-website-with-byteball.md)
   * [Weather oracle](tutorials-for-newcomers/weather-oracle.md)
