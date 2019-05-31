@@ -16,7 +16,8 @@ When you want to request a specific amount of a specific asset, format your paym
 ```text
 Any text before [payment description, will be ignored](byteball:YOUR_WALLET_ADDRESS?amount=123000&asset=base) any text after
 ```
-![](../.gitbook/assets/image%20%2810%29.png)
+
+Example: ![](../.gitbook/assets/image%20%2810%29.png)
 
 Amount is in the smallest units, such as bytes. If you omit `&asset=...` part, base asset \(bytes\) is assumed. If you want to request payment in another asset, indicate its identifier such as `oj8yEksX9Ubq7lLc+p6F2uyHUuynugeVq4+ikT67X6E=` for blackbytes \(don't forget to url-encode it\).
 

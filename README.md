@@ -194,12 +194,13 @@ The user will see the text in square brackets "Command name", it will be highlig
 
 ### Command suggestion
 
-Sometimes you might want to suggest the command without actually sending it immediately, so user could have the possibility to edit the command before sending, this could be done like this:
+Sometimes you might want to suggest the command without actually sending it immediately, so user could have the possibility to edit the command before sending, this could be done like this: 
 
 ```text
 Example command: we suggest to [buy (number) apples](suggest-command:buy 5 apples)
 ```
-![](../.gitbook/assets/image%20%289%29.png)
+
+This is how the result looks like: ![](../.gitbook/assets/image%20%289%29.png)
 
 ## Next step
 
