@@ -190,7 +190,7 @@ To give access to predefined commands, format your responses this way:
 click this link: [Command name](command:command code)
 ```
 
-The user will see the text in square brackets "Command name", it will be highlighted as a link, and when the user clicks it, his app will send `command code` text to your bot.
+The user will see the text in square brackets "Command name", it will be highlighted as a link, and when the user clicks it, his app will send `command code` text to your bot. ![](../.gitbook/assets/image%20%288%29.png)
 
 ### Command suggestion
 
@@ -199,6 +199,7 @@ Sometimes you might want to suggest the command without actually sending it imme
 ```text
 Example command: we suggest to [buy (number) apples](suggest-command:buy 5 apples)
 ```
+![](../.gitbook/assets/image%20%289%29.png)
 
 ## Next step
 
