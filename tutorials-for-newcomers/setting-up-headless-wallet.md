@@ -45,7 +45,7 @@ To be able to extract the Headless Wallet code from GitHub, we need the â€œgitâ€
 I also need to be able to fetch stuff from the web, so I install curl to be able to do that:  
 `apt-get install curl software-properties-common`
 
-Since Obyte runs on an SQLite database by default, which is [located in user data folder](https://github.com/byteball/byteballcore#configuring), you might want to be able to explore the data stored yourself, thereby making it easier to create the logic for the bot if you need to access data in the databases. If you wish to [setup Obyte to use MySQL database instead](quick-start.md#mysql-database) then that can be changed with a configuration file.  
+Since Obyte runs on an SQLite database by default, which is [located in user data folder](../configuration.md), you might want to be able to explore the data stored yourself, thereby making it easier to create the logic for the bot if you need to access data in the databases. If you wish to [setup Obyte to use MySQL database instead](quick-start.md#mysql-database) then that can be changed with a configuration file.  
 `apt-get install sqlite3`
 
 To make sure all binaries build properly, we need the build-essentials as well:  
@@ -179,7 +179,7 @@ ctrl+c`
 
 ### Monitoring logs
 
-Checking the log to see if things are running \(by default, log file is in [same folder as configuration](configuration.md)\):
+Checking the log to see if things are running \(by default, log file is in [same folder as configuration](../configuration.md)\):
 
 `tail -f ~/headless-obyte/log.txt`
 
