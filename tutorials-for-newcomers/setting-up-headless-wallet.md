@@ -55,7 +55,7 @@ Now log on with the user we initially created \(‘obyte’ in this example\)
 `su -l obyte`
 
 The headless wallet is based on nodejs, and one of the easiest way to control node versions is by the script called “nvm”. Just fire these three commands, and you’re all set:  
-``nvm_version=`curl --silent -L https://api.github.com/repos/nvm-sh/nvm/releases/latest | /usr/bin/awk '/tag_name/ { print $2 }' | /bin/sed 's/[",]//g'```
+```nvm_version=`curl --silent -L https://api.github.com/repos/nvm-sh/nvm/releases/latest | /usr/bin/awk '/tag_name/ { print $2 }' | /bin/sed 's/[",]//g'```
 
 \(make sure not to miss any of the backticks in the above\) and then run:  
 `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | bash`
@@ -94,7 +94,7 @@ nano ~/.config/headless-obyte/conf.json`
 
 I will briefly explain each of the entries, you should put in the file \(if you’re not familiar with the structure of a json object, you could check out sites such as jsoneditoronline.org\)
 
-There is also a detailed explanation of the values on [https://github.com/byteball/headless-obyte](https://github.com/byteball/headless-byteball) at the section called “Customize”.
+There is also a detailed explanation of the values on [https://github.com/byteball/headless-obyte](https://github.com/byteball/headless-obyte) at the section called “Customize”.
 
 ### deviceName config
 
@@ -124,7 +124,7 @@ The final file would look something like this:
 {% code-tabs-item title="conf.json" %}
 ```javascript
 {
-  "deviceName": "Byteball Denmark",
+  "deviceName": "Obyte Denmark",
   "permanent_pairing_secret": "0000",
   "control_addresses": [
     "DEVICE_ADDRESS_1",
@@ -179,7 +179,7 @@ ctrl+c`
 
 ### Monitoring logs
 
-Checking the log to see if things are running \(by default, log file is in [same folder as configuration](https://github.com/byteball/byteballcore#configuring)\):
+Checking the log to see if things are running \(by default, log file is in [same folder as configuration](configuration.md)\):
 
 `tail -f ~/headless-obyte/log.txt`
 

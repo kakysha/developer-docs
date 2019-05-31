@@ -9,7 +9,7 @@ description: >-
 
 Following examples are for the first way of integrating server wallet, using in-process Node.js module requirement \(`require('ocore/headless-obyte')`\), that is we will write Node.js apps. If you wish to run Obyte wallet as a standalone app wrapped in JSON-RPC \(`node headless-obyte.js`\), you'll have to find corresponding method calls and it's arguments in [JSON-RPC reference](json-rpc/running-rpc-service.md), for every code sample down below, by yourself.
 
-To begin developing any app which is based on headless-obyte, first thing to do is to set up your machine, install Node.js and tools. [Complete guide of preparing your blank Debian-based machine for Obyte development](tutorials-for-newcomers/setting-up-headless-wallet). You can skip this step if you are familiar with Node.js development and already know how to do it in your way.
+To begin developing any app which is based on headless-obyte, first thing to do is to set up your machine, install Node.js and tools. [Complete guide of preparing your blank Debian-based machine for Obyte development](tutorials-for-newcomers/setting-up-headless-wallet.md). You can skip this step if you are familiar with Node.js development and already know how to do it in your way.
 
 Create a new node.js package for your chatbot: `npm init`. You will definitely need modules from `ocore` and if you are going to send payments, you will also need `headless-obyte`. Your `package.json` should list these dependencies:
 
@@ -26,7 +26,7 @@ Create a new node.js package for your chatbot: `npm init`. You will definitely n
 
 Now run `npm install` to fetch dependencies.
 
-Full configuration options are described in [Configuration](configuration) section. As for now, in your configuration file (conf.js in project folder or conf.json in user folder) switch your app to light node and add hub URL:
+Full configuration options are described in [Configuration](configuration.md) section. As for now, in your configuration file (conf.js in project folder or conf.json in user folder) switch your app to light node and add hub URL:
 
 {% code-tabs %}
 {% code-tabs-item title="conf.js" %}
@@ -84,7 +84,7 @@ Find out in console output your first address.
 
 You can deposit some bytes on it to be able to make outbound transactions. Right after ocore is done with initialization \(`onReady function`\), we send one byte to some address. First argument is an `asset`, its the asset you are paying in \(`null` for bytes\), `amount` is payment amount in the smallest units. If the payment was successful, you get its `unit` in the callback and can save it or watch further events on this unit.
 
-There are many other functions for sending payments, for example sending multiple payments in multiple assets at the same time, see `exports` of [https://github.com/byteball/headless-obyte/blob/master/start.js](https://github.com/byteball/headless-byteball/blob/master/start.js).
+There are many other functions for sending payments, for example sending multiple payments in multiple assets at the same time, see `exports` of [https://github.com/byteball/headless-obyte/blob/master/start.js](https://github.com/byteball/headless-obyte/blob/master/start.js).
 
 The `new_my_transactions` and `my_transactions_became_stable` event handlers are to be invoked after any new transaction received to any of your wallet addresses and when this transactions become stable, respectively. `arrUnits` is an array of units \(more accurately, unit hashes\) that contained any transaction involving your addresses. The event `new_my_transactions` is triggered for outgoing transactions too, you should check if the new transaction credits one of the addresses you are expecting payments to.
 
@@ -207,12 +207,12 @@ Example command: we suggest to [buy (number) apples](suggest-command:buy 5 apple
 That's it. You've completed your first chatbot on Obyte platform. You can check other chatbot examples provided by our team:
 
 * [Bot example](https://github.com/byteball/bot-example): start from here
-* [Faucet](https://github.com/byteball/byteball-faucet): sending payments
+* [Faucet](https://github.com/byteball/obyte-faucet): sending payments
 * [ICO bot](https://github.com/byteball/ico-bot): sending and receiving payments
-* [Merchant](https://github.com/byteball/byteball-merchant): receiving payments without storage of private keys
+* [Merchant](https://github.com/byteball/obyte-merchant): receiving payments without storage of private keys
 * [Flight delay insurance](https://github.com/byteball/flight-delays-insurance): offering contracts
-* [Internal asset exchange](https://github.com/byteball/byteball-exchange): offering contracts
-* [GUI wallet](https://github.com/byteball/byteball): not a bot, but you'll find code for offering contracts
+* [Internal asset exchange](https://github.com/byteball/obyte-exchange): offering contracts
+* [GUI wallet](https://github.com/byteball/obyte-gui-wallet): not a bot, but you'll find code for offering contracts
 
 Now you are ready to make something useful, go ahead to our Tutorials section and carefully read all of them to get better understanding of Obyte code API. [Tutorials for newcomers](tutorials-for-newcomers/).
 

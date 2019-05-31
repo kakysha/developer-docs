@@ -23,7 +23,7 @@ This is the list of some of the settings that the library understands (your app 
 
 ### conf.port
 
-The port to listen on.  If you don't want to accept incoming connections at all, set port to `null`, which is the default.  If you do want to listen, you will usually have a proxy, such as nginx, accept websocket connections on standard port 443 and forward them to your byteball daemon that listens on port 6611 on the local interface.
+The port to listen on.  If you don't want to accept incoming connections at all, set port to `null`, which is the default.  If you do want to listen, you will usually have a proxy, such as nginx, accept websocket connections on standard port 443 and forward them to your Obyte daemon that listens on port 6611 on the local interface.
 
 ### conf.storage
 
@@ -41,13 +41,18 @@ Storage backend -- mysql or sqlite, the default is sqlite.  If sqlite, the datab
 	}
 }
 ```
+
+### MySQL conf for faster syncing
+
+To lower disk load and increase sync speed, you can optionally disable flushing to disk every transaction, instead doing it once a second. This can be done by setting `innodb_flush_log_at_trx_commit=0` in your MySQL server config file (my.ini)
+
 ### conf.bLight
 
 Work as light client (`true`) or full node (`false`).  The default is full client.
 
 ### conf.bServeAsHub
 
-Whether to serve as hub on the Byteball network (store and forward e2e-encrypted messages for devices that connect to your hub).  The default is `false`.
+Whether to serve as hub on the Obyte network (store and forward e2e-encrypted messages for devices that connect to your hub).  The default is `false`.
 
 ### conf.myUrl
 
@@ -60,10 +65,6 @@ Whether your node wants to learn about new peers from its current peers (`true`,
 ### conf.socksHost, conf.socksPort, and conf.socksLocalDNS
 
 Settings for connecting through optional SOCKS5 proxy.  Use them to connect through TOR and hide your IP address from peers even when making outgoing connections.  This is useful and highly recommended when you are running an online wallet on your server and want to make it harder for potential attackers to learn the IP address of the target to attack.  Set `socksLocalDNS` to `false` to route DNS queries through TOR as well.
-
-### MySQL conf for faster syncing
-
-To lower disk load and increase sync speed, you can optionally disable flushing to disk every transaction, instead doing it once a second. This can be done by setting `innodb_flush_log_at_trx_commit=0` in your MySQL server config file (my.ini)
 
 ### conf.permanent_pairing_secret
 
@@ -95,9 +96,9 @@ At some point you'll surely want to have a peek into the database, or even make 
 
 ## Accepting incoming connections
 
-Byteball network works over secure WebSocket protocol wss://.  To accept incoming connections, you'll need a valid TLS certificate (you can get a free one from [letsencrypt.org](https://letsencrypt.org)) and a domain name (you can get a free domain from [Freenom](http://www.freenom.com/)).  Then you accept connections on standard port 443 and proxy them to your locally running byteball daemon.
+Obyte network works over secure WebSocket protocol wss://.  To accept incoming connections, you'll need a valid TLS certificate (you can get a free one from [letsencrypt.org](https://letsencrypt.org)) and a domain name (you can get a free domain from [Freenom](http://www.freenom.com/)).  Then you accept connections on standard port 443 and proxy them to your locally running Obyte daemon.
 
-This is an example configuration for nginx to accept websocket connections at wss://byteball.one/bb and forward them to locally running daemon that listens on port 6611:
+This is an example configuration for nginx to accept websocket connections at wss://obyte.one/bb and forward them to locally running daemon that listens on port 6611:
 
 If your server doesn't support IPv6, comment or delete the two lines containing [::] or nginx won't start
 
@@ -107,14 +108,14 @@ server {
 	listen [::]:80 default_server;
 	listen 443 ssl;
 	listen [::]:443 ssl;
-	ssl_certificate "/etc/letsencrypt/live/byteball.one/fullchain.pem";
-	ssl_certificate_key "/etc/letsencrypt/live/byteball.one/privkey.pem";
+	ssl_certificate "/etc/letsencrypt/live/obyte.one/fullchain.pem";
+	ssl_certificate_key "/etc/letsencrypt/live/obyte.one/privkey.pem";
 
-	if ($host != "byteball.one") {
-		rewrite ^(.*)$ https://byteball.one$1 permanent;
+	if ($host != "obyte.one") {
+		rewrite ^(.*)$ https://obyte.one$1 permanent;
 	}
 	if ($https != "on") {
-		rewrite ^(.*)$ https://byteball.one$1 permanent;
+		rewrite ^(.*)$ https://obyte.one$1 permanent;
 	}
 
 	location = /bb {
