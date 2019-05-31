@@ -26,7 +26,7 @@
 * [Obyte for merchants](merchants/README.md)
   * [Payments gateway](merchants/payments-gateway.md)
   * [Cashback API](merchants/cashback-api.md)
-* [Obyte for exchanges](json-rpc/README.md)
+* [RPC](json-rpc/README.md)
   * [JSON RPC interface](json-rpc/json-rpc-interface.md)
   * [Running RPC service](json-rpc/running-rpc-service.md)
 
