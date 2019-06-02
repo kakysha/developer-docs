@@ -198,7 +198,8 @@ Sometimes you might want to suggest the command without actually sending it imme
 
 ```text
 Example command: we suggest to [buy (number) apples](suggest-command:buy 5 apples)
-```  ![](../.gitbook/assets/image%20%289%29.png)
+```
+Here is how the result looks like:  ![](../.gitbook/assets/image%20%289%29.png)
 
 ## Next step
 
